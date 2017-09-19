@@ -1,0 +1,34 @@
+<div class="card card-{{card.type}}" *ngIf="card"
+  [@cardHand]="handState"
+  [@cardHover]="hoverState"
+  (mouseover)="toggleState()"
+  (mouseout)="toggleState()">
+  <div class="inner" *ngIf="card.type != 'abstract'">
+    <div class="element element-{{card.element.type}}">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-fw fa-stack-1x fa-{{card.element.fa}}" aria-hidden="true"></i>
+      </span>
+    </div>
+    <p class="title text-center">
+      {{card.name}}
+    </p>
+    <p class="left">
+      {{card.values.left}}
+    </p>
+    <p class="top">
+      {{card.values.top}}
+    </p>
+    <p class="right">
+      {{card.values.right}}
+    </p>
+    <p class="bottom">
+      {{card.values.bottom}}
+    </p>
+  </div>
+  <div class="inner" *ngIf="card.type == 'abstract'">
+    <p>
+      TetraKard
+    </p>
+  </div>
+</div>

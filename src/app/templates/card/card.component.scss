@@ -1,0 +1,155 @@
+.card {
+  height: 205px;
+  width: 140px;
+  border-radius: 5px;
+  border: solid rgba(0,0,0,0.3) 1px;
+  background-color: darkslategrey;
+  box-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+  float: left;
+  padding: 4px;
+  margin: 0 5px;
+  .inner {
+    border-radius: 3px;
+    background-color: white;
+    height: 100%;
+    position: relative;
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+    .title {
+      position: absolute;
+      bottom: 2px;
+      width: 100%;
+      font-size: 0.9em;
+    }
+    .left {
+      position: absolute;
+      bottom: 60px;
+      left: 20px;
+    }
+    .right {
+      position: absolute;
+      bottom: 60px;
+      right: 20px;
+    }
+    .top {
+      position: absolute;
+      bottom: 90px;
+      right: 60px;
+    }
+    .bottom {
+      position: absolute;
+      bottom: 30px;
+      right: 60px;
+    }
+    .element {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      font-size: 0.8em;
+      color: black;
+      .fa-circle {
+        color: silver;
+      }
+    }
+    .element-wood,
+    .element-earth {
+      .fa-circle {
+        color: sienna;
+      }
+      color: white;
+    }
+    .element-water {
+      .fa-circle {
+        color: royalblue;
+      }
+      color: white;
+    }
+    .element-lava,
+    .element-fire {
+      .fa-circle {
+        color: firebrick;
+      }
+      color: yellow;
+    }
+    .element-air {
+      .fa-circle {
+        color: lightcyan;
+      }
+      color: grey;
+    }
+    .element-magnetic,
+    .element-metal {
+      .fa-circle {
+        color: lightgrey;
+      }
+      color: white;
+    }
+    .element-magnetic {
+      color: black;
+    }
+    .element-ice {
+      .fa-circle {
+        color: lightgrey;
+      }
+      color: royalblue;
+    }
+    .element-thunder {
+      .fa-circle {
+        color: royalblue;
+      }
+      color: yellow;
+    }
+    .element-life {
+      .fa-circle {
+        color: anticwhite;
+      }
+      color: lightpink;
+    }
+    .element-death {
+      .fa-circle {
+        color: black;
+      }
+      color: white;
+    }
+    .element-void {
+      .fa-circle {
+        color: purple;
+      }
+      color: white;
+    }
+    .element-psy {
+      .fa-circle {
+        color: skyblue;
+      }
+      color: black;
+    }
+    .element-time {
+      .fa-circle {
+        color: grey;
+      }
+      color: black;
+    }
+  }
+}
+.card-uncommon {
+  background-color: limegreen;
+}
+.card-rare {
+  background-color: skyblue;
+}
+.card-epic {
+  background-color: #4b0082;
+}
+.card-legendary {
+  background-color: gold;
+}
+.card-abstract {
+  border: solid rgba(222,184,135,0.3) 1px;
+  background-color: peru;
+  .inner {
+    background-color: sandybrown;
+    line-height: 195px;
+    color: chocolate;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+  }
+}
