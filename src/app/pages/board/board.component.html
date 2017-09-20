@@ -1,0 +1,27 @@
+<div class="container">
+  <p>
+    {{title}}
+    <i class="fa fa-fw fa-angle-right" aria-hidden="true"></i>
+    <a [routerLink]="['/cardlist']">List of cards</a>
+  </p>
+  <div class="board">
+    <div class="four-tiles" *ngFor="let row of rows">
+      <card
+        [card]="card"
+        *ngFor="let card of row">
+      </card>
+    </div>
+  </div>
+</div>
+
+<div class="hand"
+  [@handState]="handState"
+  (mouseover)="toggleHand()"
+  (mouseout)="toggleHand()">
+  <card *ngFor="let card of hand; let i = index"
+    [card]="card"
+    [inHand]="true"
+    [position]="i"
+    (selected)="onCardSelected(i)">
+  </card>
+</div>

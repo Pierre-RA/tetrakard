@@ -1,0 +1,21 @@
+{
+  "cards": [{
+    "name": "Sand mowler",
+    "img": "",
+    "type": "uncommon",
+    "element": "earth",
+    "values": [2,2,2,7]
+  }, {
+    "name": "Bald Monkey",
+    "img": "",
+    "type": "uncommon",
+    "element": "wood",
+    "values": [3,6,3,1]
+  }, {
+    "name": "Fire bowl",
+    "img": "",
+    "type": "uncommon",
+    "element": "fire",
+    "values": [4,4,5,3]
+  }]
+}

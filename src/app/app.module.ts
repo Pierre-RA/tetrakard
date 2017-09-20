@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { CardModule } from './templates/card/card.module';
+import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -14,7 +14,7 @@ import { AppComponent } from './app.component';
     NgbModule.forRoot(),
     BrowserModule,
     BrowserAnimationsModule,
-    CardModule
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]

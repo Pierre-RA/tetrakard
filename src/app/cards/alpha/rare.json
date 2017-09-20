@@ -1,0 +1,9 @@
+{
+  "cards": [{
+    "name": "Coil",
+    "img": "",
+    "type": "rare",
+    "element": "magnetic",
+    "values": [4,2,8,3]
+  }]
+}

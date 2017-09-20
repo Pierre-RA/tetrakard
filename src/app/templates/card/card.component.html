@@ -2,7 +2,8 @@
   [@cardHand]="handState"
   [@cardHover]="hoverState"
   (mouseover)="toggleState()"
-  (mouseout)="toggleState()">
+  (mouseout)="toggleState()"
+  (click)="onClick()">
   <div class="inner" *ngIf="card.type != 'abstract'">
     <div class="element element-{{card.element.type}}">
       <span class="fa-stack fa-lg">
@@ -26,7 +27,7 @@
       {{card.values.bottom}}
     </p>
   </div>
-  <div class="inner" *ngIf="card.type == 'abstract'">
+  <div class="inner {{card.highlight}}" *ngIf="card.type == 'abstract'">
     <p>
       TetraKard
     </p>

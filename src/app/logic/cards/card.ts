@@ -1,7 +1,6 @@
 import { Serializable } from '../serialize';
 import { Random } from '../random';
 import { Element } from '../elements';
-import * as Cards from './cards.json';
 
 const TYPE = 'card';
 
@@ -10,6 +9,7 @@ export class Card implements Serializable<Card> {
   name: string;
   values: Values;
   element: Element;
+  highlight: string;
 
   deserialize(input: Object): this {
     this.type = input['type'] || 'abstract';
@@ -19,17 +19,16 @@ export class Card implements Serializable<Card> {
     return this;
   }
 
-  static getRandom(): Card {
-    let type = Random.getCardType();
-    let upper = Cards[type].length;
-    let rand = Random.getRange(0, upper);
-    return new Card().deserialize(Cards[type][rand]);
+  toggleHighlight(): void {
+    this.highlight = this.highlight == 'highlight' ? '' : 'highlight';
   }
 
-  static getEmpty(): Card {
-    return new Card().deserialize({
-      values: {},
+  static getCards(input: Array<Object>): Array<Card> {
+    let result = [];
+    input.forEach(card => {
+      result.push(new Card().deserialize(card));
     });
+    return result;
   }
 }
 

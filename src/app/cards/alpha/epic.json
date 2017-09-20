@@ -1,0 +1,9 @@
+{
+  "cards": [{
+    "name": "Zeus' avatar",
+    "img": "",
+    "type": "epic",
+    "element": "thunder",
+    "values": [8,8,7,5]
+  }]
+}

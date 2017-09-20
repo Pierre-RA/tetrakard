@@ -1,24 +1,2 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="container">
-  <h1>
-    {{title}}!
-  </h1>
-  <div class="board">
-    <div class="four-tiles" *ngFor="let row of rows">
-      <card
-        [card]="card"
-        *ngFor="let card of row">
-      </card>
-    </div>
-  </div>
-</div>
-
-<div class="hand"
-  [@handState]="handState"
-  (mouseover)="toggleHand()"
-  (mouseout)="toggleHand()">
-  <card [card]="card"
-    [inHand]="true"
-    *ngFor="let card of hand">
-  </card>
-</div>
+<router-outlet></router-outlet>

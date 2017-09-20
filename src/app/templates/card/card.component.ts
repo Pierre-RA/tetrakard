@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {
   trigger,
   state,
@@ -28,7 +28,7 @@ import { Card } from '../../logic/cards';
     ]),
     trigger('cardHand', [
       state('hidden', style({
-        height: '80px',
+        height: '100px',
         overflow: 'hidden'
       })),
       state('shown', style({
@@ -42,7 +42,10 @@ import { Card } from '../../logic/cards';
 export class CardComponent implements OnInit {
 
   @Input() card: Card;
+  @Input() position: number;
   @Input() inHand: boolean;
+  @Output() selected: EventEmitter<number> =
+    new EventEmitter();
 
   handState: string;
   hoverState: string;
@@ -65,6 +68,12 @@ export class CardComponent implements OnInit {
       if (this.hoverState) {
         this.hoverState = this.hoverState == 'inactive' ? 'active' : 'inactive';
       }
+    }
+  }
+
+  onClick(): void {
+    if (this.inHand) {
+      this.selected.emit(this.position);
     }
   }
 

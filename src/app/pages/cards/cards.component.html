@@ -1,0 +1,13 @@
+<div class="container">
+  <p>
+    {{title}}
+    <i class="fa fa-fw fa-angle-right" aria-hidden="true"></i>
+    <a [routerLink]="['/']">Board</a>
+  </p>
+  <div>
+    <card
+      [card]="card"
+      *ngFor="let card of cards">
+    </card>
+  </div>
+</div>
