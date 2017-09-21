@@ -4,7 +4,7 @@
   (mouseover)="toggleState()"
   (mouseout)="toggleState()"
   (click)="onClick()">
-  <div class="inner" *ngIf="card.type != 'abstract'">
+  <div class="inner {{card.owner}}" *ngIf="card.type != 'abstract'">
     <div class="element element-{{card.element.type}}">
       <span class="fa-stack fa-lg">
         <i class="fa fa-circle fa-stack-2x"></i>
@@ -15,16 +15,16 @@
       {{card.name}}
     </p>
     <p class="left">
-      {{card.values.left}}
+      {{card.values.left | number}}
     </p>
     <p class="top">
-      {{card.values.top}}
+      {{card.values.top | number}}
     </p>
     <p class="right">
-      {{card.values.right}}
+      {{card.values.right | number}}
     </p>
     <p class="bottom">
-      {{card.values.bottom}}
+      {{card.values.bottom | number}}
     </p>
   </div>
   <div class="inner {{card.highlight}}" *ngIf="card.type == 'abstract'">

@@ -49,6 +49,7 @@ export class CardComponent implements OnInit {
 
   handState: string;
   hoverState: string;
+  owner: string;
 
   constructor() { }
 
@@ -72,9 +73,7 @@ export class CardComponent implements OnInit {
   }
 
   onClick(): void {
-    if (this.inHand) {
-      this.selected.emit(this.position);
-    }
+    this.selected.emit(this.position);
   }
 
 }

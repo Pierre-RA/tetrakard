@@ -37,12 +37,22 @@ export class CardsService {
   getRandom(): Card {
     let type = Random.getCardType();
     let rand = Random.getRange(0, this[type].length);
-    return this[type][rand];
+    return new Card().deserialize(this[type][rand]);
   }
 
   getEmptyCard(): Card {
     return new Card().deserialize({
-      values: {},
+      values: [0,0,0,0],
+    });
+  }
+
+  getRandomManaCard(): Card {
+    let element = Random.getElement();
+    return new Card().deserialize({
+      name: element,
+      type: 'mana',
+      element: element,
+      values: [17,17,17,17],
     });
   }
 
