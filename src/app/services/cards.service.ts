@@ -37,7 +37,9 @@ export class CardsService {
   getRandom(): Card {
     let type = Random.getCardType();
     let rand = Random.getRange(0, this[type].length);
-    return new Card().deserialize(this[type][rand]);
+    let foo = Card.copy(this[type][rand]);
+    return Card.copy(this[type][rand]);
+    // return new Card().deserialize(this[type][rand]);
   }
 
   getEmptyCard(): Card {

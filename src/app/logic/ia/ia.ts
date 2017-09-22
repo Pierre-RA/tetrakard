@@ -7,7 +7,7 @@ export interface IA {
 
   getFreeSpaces(board: Array<Array<Card>>): Array<BoardPosition>;
 
-  chooseFreeSpace(board: Array<Array<Card>>): BoardPosition;
+  chooseFreeSpace(board: Array<Array<Card>>, card?: Card): BoardPosition;
 }
 
 export interface Response {

@@ -23,7 +23,7 @@ import { CardsService } from '../../services/cards.service';
         width: '150px'
       })),
       state('right', style({
-        width: '120px',
+        width: '150px',
         overflow: 'hidden'
       })),
       transition('right => left', animate('100ms ease-in')),
@@ -90,10 +90,9 @@ export class BoardComponent implements OnInit {
   }
 
   initTurn(): void {
-    let rand = Random.getRange(0,1);
-    console.log(rand);
+    let rand = Random.getRange(0,2);
     if (rand == 1) {
-      this.adversary.playTurn(this.rows);
+      this.adversaryTurn();
     }
   }
 

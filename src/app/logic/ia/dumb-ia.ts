@@ -7,7 +7,7 @@ export class DumbIA implements IA {
   private hand: Array<Card>;
   private color: string;
 
-  constructor(name: string) {
+  constructor(private name: string) {
     this.hand = [];
     this.color = 'owner-pink';
   }
@@ -22,6 +22,10 @@ export class DumbIA implements IA {
 
   setHand(hand: Array<Card>): void {
     this.hand = hand;
+  }
+
+  getName(): string {
+    return this.name;
   }
 
   playTurn(board: Array<Array<Card>>): Response {
@@ -51,7 +55,7 @@ export class DumbIA implements IA {
     return result;
   }
 
-  chooseFreeSpace(board: Array<Array<Card>>): BoardPosition {
+  chooseFreeSpace(board: Array<Array<Card>>, card?: Card): BoardPosition {
     let freespaces: Array<BoardPosition> = this.getFreeSpaces(board);
     let rand: number = Random.getRange(0, freespaces.length);
     return freespaces[rand];

@@ -11,14 +11,12 @@ export class Card implements Serializable<Card> {
   element: Element;
   highlight: string;
   owner: string;
-  id: number;
 
   deserialize(input: Object): this {
     this.type = input['type'] || 'abstract';
     this.name = input['name'] || '';
     this.values = new Values().deserialize(input['values']);
     this.element = new Element().deserialize(input['element']);
-    this.id = Random.getRange(10000,99999);
     return this;
   }
 
@@ -51,6 +49,15 @@ export class Card implements Serializable<Card> {
     input.forEach(card => {
       result.push(new Card().deserialize(card));
     });
+    return result;
+  }
+
+  static copy(card: Card): Card {
+    let result = new Card();
+    result.type = card.type;
+    result.name = card.name;
+    result.values = card.values;
+    result.element = card.element;
     return result;
   }
 }

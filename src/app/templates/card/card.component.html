@@ -1,4 +1,4 @@
-<div class="card card-{{card.type}}" *ngIf="card"
+<div class="card card-{{card.type}} position-{{position}}" *ngIf="card"
   [@cardHand]="handState"
   [@cardHover]="hoverState"
   (mouseover)="toggleState()"
