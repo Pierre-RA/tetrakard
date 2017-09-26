@@ -7,11 +7,17 @@ import {
   transition
 } from '@angular/animations';
 
-import { Random } from '../../logic/random';
-
-import { DumbIA, Response } from '../../logic/ia';
-import { Card } from '../../logic/cards';
+import {
+  Random,
+  DumbIA,
+  Response,
+  Card,
+  Board
+} from '../../logic';
 import { CardsService } from '../../services/cards.service';
+
+const USER_COLOR = 'owner-blue';
+const ADVERSARY_COLOR = 'owner-pink';
 
 @Component({
   selector: 'app-board',
@@ -33,66 +39,31 @@ import { CardsService } from '../../services/cards.service';
 })
 export class BoardComponent implements OnInit {
   title: string;
-  rows: Array<Array<Card>>;
   hand: Array<Card>;
-  adversary: DumbIA;
   handState: string;
   playingCard: Card;
-  ownerColor: string;
-  countUser: number;
-  countAdversary: number;
+  board: Board;
+  ia: string;
 
   constructor(
     private cardsService: CardsService
   ) {
     this.title = 'TetraKard';
     this.handState = 'right';
-    this.ownerColor = 'owner-blue';
-    this.rows = [];
     this.hand = [];
+    this.ia = 'Dumb-o';
     this.playingCard = null;
-    this.adversary = new DumbIA('Dumb-o');
-    this.countUser = 0;
-    this.countAdversary = 0;
+    this.board = new Board(this.cardsService, ADVERSARY_COLOR);
   }
 
   ngOnInit() {
-    this.initBoard();
+    this.board.initGame(this.ia);
     this.initHand();
-    this.initAdversary();
-    this.initTurn();
-  }
-
-  initBoard(): void {
-    let randI = Random.getRange(0, 4);
-    let randJ = Random.getRange(0, 4);
-    for (let j = 0; j < 4; j++) {
-      this.rows[j] = [];
-      for (let i = 0; i < 4; i++) {
-        this.rows[j].push(this.cardsService.getEmptyCard());
-      }
-    }
-    this.rows[randI][randJ] = this.cardsService.getRandomManaCard();
   }
 
   initHand(): void {
     for (let i = 0; i < 8; i++) {
       this.hand.push(this.cardsService.getRandom());
-    }
-  }
-
-  initAdversary(): void {
-    let hand = [];
-    for (let i = 0; i < 8; i++) {
-      hand.push(this.cardsService.getRandom());
-    }
-    this.adversary.setHand(hand);
-  }
-
-  initTurn(): void {
-    let rand = Random.getRange(0,2);
-    if (rand == 1) {
-      this.adversaryTurn();
     }
   }
 
@@ -106,20 +77,20 @@ export class BoardComponent implements OnInit {
   }
 
   onBoardCardSelected(i: number, j: number): void {
-    if (this.rows[i][j].isEmpty() && this.playingCard) {
-      this.rows[i][j] = this.playingCard;
-      this.rows[i][j].setOwner(this.ownerColor);
+    if (this.board.getBoard()[i][j].isEmpty() && this.playingCard) {
+      this.board.getBoard()[i][j] = this.playingCard;
+      this.board.getBoard()[i][j].setOwner(USER_COLOR);
       this.playingCard = null;
       this.highlightEmptyCells();
-      this.computeScore(i, j, this.ownerColor);
-      this.adversaryTurn();
+      this.board.setOwners(i, j, USER_COLOR);
+      this.board.adversaryTurn();
     }
   }
 
   highlightEmptyCells(): void {
     for (let j = 0; j < 4; j++) {
       for (let i = 0; i < 4; i++) {
-        this.rows[j][i].toggleHighlight();
+        this.board.getBoard()[j][i].toggleHighlight();
       }
     }
   }
@@ -128,68 +99,17 @@ export class BoardComponent implements OnInit {
     this.handState = this.handState == 'right' ? 'left' : 'right';
   }
 
-  computeScore(i, j, color): void {
-    let current = this.rows[i][j];
-    let left = (j > 0) ? this.rows[i][j - 1] : this.cardsService.getEmptyCard();
-    let top = (i > 0) ? this.rows[i - 1][j] : this.cardsService.getEmptyCard();
-    let right = (j < 3) ? this.rows[i][j + 1] : this.cardsService.getEmptyCard();
-    let bottom = (i < 3) ? this.rows[i + 1][j] : this.cardsService.getEmptyCard();
-
-    // value left
-    if (left.values.right < current.values.left) {
-      left.setOwner(color);
-    }
-
-    // value top
-    if (top.values.bottom < current.values.top) {
-      top.setOwner(color);
-    }
-
-    // value right
-    if (right.values.left < current.values.right) {
-      right.setOwner(color);
-    }
-
-    // value bottom
-    if (bottom.values.top < current.values.bottom) {
-      bottom.setOwner(color);
-    }
-
-    this.computeResult();
-  }
-
-  computeResult(): void {
-    this.countAdversary = 0;
-    this.countUser = 0;
-    this.rows.forEach(row => {
-      row.forEach(card => {
-        this.countAdversary += card.isOwnerAdversary() ? 1 : 0;
-        this.countUser += card.isOwnerUser() ? 1 : 0;
-      });
-    });
-  }
-
-  adversaryTurn(): void {
-    let response: Response = this.adversary.playTurn(this.rows);
-    if (response) {
-      let i = response.boardPosition.y;
-      let j = response.boardPosition.x;
-      this.playingCard = this.adversary.getHand()[response.handCard];
-      this.rows[i][j] = this.playingCard;
-      this.rows[i][j].setOwner(this.adversary.getColor());
-      this.playingCard = null;
-      this.computeScore(i, j, this.adversary.getColor());
+  onReset(ia?: string): void {
+    if (ia == 'Dumb-o') {
+      this.ia = ia;
+      this.board.initGame(ia, 'dumb');
+    } else if (ia == 'Smart-o') {
+      this.ia = ia;
+      this.board.initGame(ia, 'smart');
     } else {
-      this.showWinner();
+      this.board.initGame(this.ia);
     }
-  }
-
-  showWinner(): void {
-    if (this.countUser > this.countAdversary) {
-      console.log('User wins');
-    } else {
-      console.log('Adversary wins');
-    }
+    this.initHand();
   }
 
 }

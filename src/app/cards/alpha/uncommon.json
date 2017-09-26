@@ -17,5 +17,11 @@
     "type": "uncommon",
     "element": "fire",
     "values": [7,4,5,3]
+  }, {
+    "name": "Ice cold",
+    "img": "",
+    "type": "uncommon",
+    "element": "ice",
+    "values": [2,2,8,7]
   }]
 }

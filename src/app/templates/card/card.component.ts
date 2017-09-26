@@ -16,12 +16,10 @@ import { Card } from '../../logic/cards';
   animations: [
     trigger('cardHover', [
       state('inactive', style({
-        zIndex: '10',
         transform: 'scale(1)',
         borderColor: 'grey'
       })),
       state('active', style({
-        zIndex: '200',
         transform: 'scale(1.05)',
         borderColor: 'gold'
       })),
@@ -32,11 +30,13 @@ import { Card } from '../../logic/cards';
       state('hidden', style({
         height: '205px',
         position: 'absolute',
+        zIndex: 10,
       })),
       state('shown', style({
         height: '205px',
         position: 'absolute',
-        transform: 'scale(1.05)'
+        transform: 'scale(1.05)',
+        zIndex: 200,
       })),
       transition('hidden => shown', animate('100ms ease-in')),
       transition('shown => hidden', animate('100ms ease-out'))

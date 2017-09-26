@@ -1,7 +1,12 @@
 import { Card } from '../cards';
 
 export interface IA {
+
+  getHand(): Array<Card>;
+
   setHand(hand: Array<Card>): void;
+
+  getName(): string;
 
   playTurn(board: Array<Array<Card>>): Response;
 

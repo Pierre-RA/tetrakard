@@ -5,15 +5,13 @@ import { Random } from '../random';
 export class SmartIA implements IA {
 
   private hand: Array<Card>;
-  private color: string;
 
-  constructor(name: string) {
+  constructor(private name: string) {
     this.hand = [];
-    this.color = 'owner-pink';
   }
 
-  getColor(): string {
-    return this.color;
+  getName(): string {
+    return this.name;
   }
 
   getHand(): Array<Card> {

@@ -5,5 +5,11 @@
     "type": "rare",
     "element": "magnetic",
     "values": [10,2,8,3]
+  }, {
+    "name": "Vulcano floor",
+    "img": "",
+    "type": "rare",
+    "element": "lava",
+    "values": [1,2,4,10]
   }]
 }

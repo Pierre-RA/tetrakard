@@ -5,15 +5,9 @@ import { Random } from '../random';
 export class DumbIA implements IA {
 
   private hand: Array<Card>;
-  private color: string;
 
   constructor(private name: string) {
     this.hand = [];
-    this.color = 'owner-pink';
-  }
-
-  getColor(): string {
-    return this.color;
   }
 
   getHand(): Array<Card> {

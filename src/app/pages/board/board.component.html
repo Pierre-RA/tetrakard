@@ -4,11 +4,12 @@
     <i class="fa fa-fw fa-angle-right" aria-hidden="true"></i>
     <a [routerLink]="['/cardlist']">List of cards</a>
     <i class="fa fa-fw fa-angle-right" aria-hidden="true"></i>
-    <button class="btn btn-sm btn-primary">Dumb-o</button>
-    <button class="btn btn-sm btn-secondary">Smart-o</button>
+    <button class="btn btn-sm" [ngClass]="{'btn-primary': ia == 'Dumb-o', 'btn-secondary': ia == 'Smart-o'}" (click)="onReset('Dumb-o')">Dumb-o</button>
+    <button class="btn btn-sm" [ngClass]="{'btn-primary': ia == 'Smart-o', 'btn-secondary': ia == 'Dumb-o'}" (click)="onReset('Smart-o')">Smart-o</button>
+    <button class="btn btn-sm btn-danger" (click)="onReset()">Restart</button>
   </p>
   <div class="board">
-    <div class="four-tiles" *ngFor="let row of rows; let i = index">
+    <div class="four-tiles" *ngFor="let row of board.getBoard(); let i = index">
       <card *ngFor="let card of row; let j = index"
         [card]="card"
         (selected)="onBoardCardSelected(i, j)">
