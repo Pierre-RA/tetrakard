@@ -22,6 +22,7 @@ export class Board {
 
   initGame(name: string, type?: string): void {
     this.resetScore();
+    this.ended = false;
     let randI = Random.getRange(0, 4);
     let randJ = Random.getRange(0, 4);
     for (let i = 0; i < 4; i++) {
@@ -90,7 +91,7 @@ export class Board {
 
     // value right
     if (
-      j < this.board[i].length &&
+      j < (this.board[i].length - 1) &&
       this.board[i][j + 1].values.left <
       this.board[i][j].values.right
     ) {
@@ -99,7 +100,7 @@ export class Board {
 
     // value bottom
     if (
-      i < this.board.length &&
+      i < (this.board.length - 1) &&
       this.board[i + 1][j].values.top <
       this.board[i][j].values.bottom
     ) {
@@ -114,14 +115,12 @@ export class Board {
     this.score.adversary = 0;
     this.board.forEach(row => {
       row.forEach(card => {
-        this.score.adversary += card.isOwnerAdversary() ? 1 : 0;
-        this.score.user += card.isOwnerUser() ? 1 : 0;
+        this.score.adversary += !card.isEmpty() && card.isOwnerAdversary() ? 1 : 0;
+        this.score.user += !card.isEmpty() && card.isOwnerUser() ? 1 : 0;
       });
     });
     if (this.isBoardFull()) {
       this.ended = true;
-      console.log('you: ' + this.score.user);
-      console.log(this.adversary.getName() + ': ' + this.score.adversary);
     }
   }
 
@@ -143,6 +142,14 @@ export class Board {
       });
     });
     return result;
+  }
+
+  hasPlayerWon(): boolean {
+    return this.ended && this.score.user > this.score.adversary;
+  }
+
+  hasAdversaryWon(): boolean {
+    return this.ended && this.score.adversary > this.score.user;
   }
 
   resetScore(): void {

@@ -7,6 +7,9 @@
     <button class="btn btn-sm" [ngClass]="{'btn-primary': ia == 'Dumb-o', 'btn-secondary': ia == 'Smart-o'}" (click)="onReset('Dumb-o')">Dumb-o</button>
     <button class="btn btn-sm" [ngClass]="{'btn-primary': ia == 'Smart-o', 'btn-secondary': ia == 'Dumb-o'}" (click)="onReset('Smart-o')">Smart-o</button>
     <button class="btn btn-sm btn-danger" (click)="onReset()">Restart</button>
+    <span class="adversary">{{board.score.adversary}}</span>
+    -
+    <span class="user">{{board.score.user}}</span>
   </p>
   <div class="board">
     <div class="four-tiles" *ngFor="let row of board.getBoard(); let i = index">
@@ -28,4 +31,12 @@
     [position]="i"
     (selected)="onCardSelected(i)">
   </card>
+</div>
+
+<div class="win-text user" *ngIf="board.hasPlayerWon()">
+  YOU WIN
+</div>
+
+<div class="win-text adversary" *ngIf="board.hasAdversaryWon()">
+  YOU LOSE
 </div>

@@ -44,6 +44,34 @@
   @include pale-orange-radial;
 }
 
+.adversary,
+.user {
+  width: 10px;
+  padding: 8px 4px;
+  font-family: 'Orbitron', sans-serif;
+  color: rgba(0,0,0,0.6);
+}
+
+.adversary {
+  background-color: lightpink;
+}
+
+.user {
+  background-color: skyblue;
+}
+
+.win-text {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  font-size: 5em;
+  font-family: 'Orbitron', sans-serif;
+  text-shadow: 0 0 5px rgba(0,0,0,0.3);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  color: rgb(251,251,251);
+}
+
 /**
  * Test card sizing proportions
  */
