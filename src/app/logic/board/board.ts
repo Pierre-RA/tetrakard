@@ -1,7 +1,6 @@
 import { Random } from '../random';
 import { IA, DumbIA, SmartIA, Response } from '../ia';
 import { Card } from '../cards';
-
 import { CardsService } from '../../services/cards.service';
 
 export class Board {
@@ -28,7 +27,7 @@ export class Board {
     for (let i = 0; i < 4; i++) {
       this.board[i] = [];
       for (let j = 0; j < 4; j++) {
-        this.board[i].push(this.cardsService.getEmptyCard());
+        this.board[i].push(Card.getEmptyCard());
       }
     }
     this.board[randI][randJ] = this.cardsService.getRandomManaCard();
@@ -71,34 +70,40 @@ export class Board {
   }
 
   setOwners(i: number, j: number, color: string): void {
-    let current = this.board[i][j];
-    let left = (j > 0) ? this.board[i][j - 1] : this.cardsService.getEmptyCard();
-    let top = (i > 0) ? this.board[i - 1][j] : this.cardsService.getEmptyCard();
-    let right = (j < 3) ? this.board[i][j + 1] : this.cardsService.getEmptyCard();
-    let bottom = (i < 3) ? this.board[i + 1][j] : this.cardsService.getEmptyCard();
-
     // value left
-    if (left.values.right < current.values.left) {
-      left.setOwner(color);
-      console.log('left is ' + color);
+    if (
+      j > 0 &&
+      this.board[i][j - 1].values.right <
+      this.board[i][j].values.left
+    ) {
+      this.board[i][j - 1].setOwner(color);
     }
 
     // value top
-    if (top.values.bottom < current.values.top) {
-      top.setOwner(color);
-      console.log('top is ' + color);
+    if (
+      i > 0 &&
+      this.board[i - 1][j].values.bottom <
+      this.board[i][j].values.top
+    ) {
+      this.board[i - 1][j].setOwner(color);
     }
 
     // value right
-    if (right.values.left < current.values.right) {
-      right.setOwner(color);
-      console.log('right is ' + color);
+    if (
+      j < this.board[i].length &&
+      this.board[i][j + 1].values.left <
+      this.board[i][j].values.right
+    ) {
+      this.board[i][j + 1].setOwner(color);
     }
 
     // value bottom
-    if (bottom.values.top < current.values.bottom) {
-      bottom.setOwner(color);
-      console.log('bottom is ' + color);
+    if (
+      i < this.board.length &&
+      this.board[i + 1][j].values.top <
+      this.board[i][j].values.bottom
+    ) {
+      this.board[i + 1][j].setOwner(color);
     }
 
     this.setScore();

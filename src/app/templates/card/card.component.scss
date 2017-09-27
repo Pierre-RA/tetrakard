@@ -146,16 +146,19 @@
   }
 }
 .card-uncommon {
-  background-color: limegreen;
+  background-color: teal;
 }
 .card-rare {
-  background-color: skyblue;
+  background-color: mediumblue;
+  box-shadow: 0 0 10px dodgerblue;
 }
 .card-epic {
-  background-color: #4b0082;
+  background-color: purple;
+  box-shadow: 0 0 10px magenta;
 }
 .card-legendary {
-  background-color: gold;
+  background-color: orange;
+  box-shadow: 0 0 10px gold;
 }
 .card-abstract {
   border: solid rgba(222,184,135,0.3) 1px;

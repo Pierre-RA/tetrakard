@@ -5,13 +5,13 @@ export class Random {
 
   static getCardType(): string {
     let rand = Math.random();
-    if (rand > 0.99) {
+    if (rand > 0.999) {
       return 'legendary';
     }
-    if (rand > 0.9) {
+    if (rand > 0.99) {
       return 'epic';
     }
-    if (rand > 0.75) {
+    if (rand > 0.9) {
       return 'rare';
     }
     if (rand > 0.5) {

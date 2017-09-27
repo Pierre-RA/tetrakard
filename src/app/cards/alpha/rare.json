@@ -6,10 +6,28 @@
     "element": "magnetic",
     "values": [10,2,8,3]
   }, {
-    "name": "Vulcano floor",
+    "name": "Volcano floor",
     "img": "",
     "type": "rare",
     "element": "lava",
     "values": [1,2,4,10]
+  }, {
+    "name": "Dark forest",
+    "img": "",
+    "type": "rare",
+    "element": "wood",
+    "values": [9,4,11,2]
+  }, {
+    "name": "Glacier",
+    "img": "",
+    "type": "rare",
+    "element": "ice",
+    "values": [9,8,7,9]
+  }, {
+    "name": "Thunderstorm",
+    "img": "",
+    "type": "rare",
+    "element": "thunder",
+    "values": [2,13,4,5]
   }]
 }

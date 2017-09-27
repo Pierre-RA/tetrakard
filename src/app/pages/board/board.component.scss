@@ -43,3 +43,28 @@
   bottom: 0;
   @include pale-orange-radial;
 }
+
+/**
+ * Test card sizing proportions
+ */
+.test {
+  height: 100vh;
+  width: 100vw;
+  background-color: silver;
+}
+
+@media screen and (orientation:portrait) {
+  .test {
+    .hand {
+
+    }
+  }
+}
+
+@media screen and (orientation:landscape) {
+  .test {
+    .hand {
+
+    }
+  }
+}

@@ -2,6 +2,8 @@ import { IA, Response, BoardPosition } from './ia';
 import { Card } from '../cards';
 import { Random } from '../random';
 
+const SCORE_MODAL = 10;
+
 export class SmartIA implements IA {
 
   private hand: Array<Card>;
@@ -25,16 +27,18 @@ export class SmartIA implements IA {
   playTurn(board: Array<Array<Card>>): Response {
     let spot: BoardPosition;
     let best: number;
-    let minScore: number = 500;
+    let minScore: number = 0;
     let score: number;
     this.hand.forEach((card, index) => {
       spot = this.chooseFreeSpace(board, card);
-      if (!score) {
+      if (!spot) {
         return null;
       }
       score = this.getScore(board, spot, card);
-      minScore = score < minScore ? score : minScore;
-      best = score < minScore ? index : best;
+      if (score > minScore) {
+        minScore = score;
+        best = index;
+      }
     });
     return {
       handCard: best,
@@ -62,7 +66,7 @@ export class SmartIA implements IA {
     if (!freespaces) {
       return null;
     }
-    let minScore = 500;
+    let minScore = 0;
     let score = 0;
     let minPosition: BoardPosition = {
       x: -1,
@@ -70,8 +74,10 @@ export class SmartIA implements IA {
     };
     freespaces.forEach(position => {
       score = this.getScore(board, position, card);
-      minScore = score < minScore ? score : minScore;
-      minPosition = score < minScore ? position : minPosition;
+      if (score > minScore) {
+        minScore = score;
+        minPosition = position;
+      }
     });
     return minPosition;
   }
@@ -84,53 +90,49 @@ export class SmartIA implements IA {
     // Left
     if (j > 0) {
       if (board[i][j - 1].isEmpty()) {
-        score -= card.values.right;
+        score += 1 / (card.values.left + SCORE_MODAL);
       } else {
-        if (card.values.right - board[i][j - i].values.left > 0) {
-          score += card.values.right - board[i][j - i].values.left;
-        }
+        score += card.values.left - board[i][j - 1].values.right > 0 ? 1 : 0;
+        score += 1 / (SCORE_MODAL + Math.abs(card.values.left - board[i][j - 1].values.right));
       }
     } else {
-      score += card.values.right;
+      score += 1 / (card.values.left + SCORE_MODAL);
     }
 
     // Top
     if (i > 0) {
       if (board[i - 1][j].isEmpty()) {
-        score -= card.values.bottom;
+        score += 1 / (card.values.top + SCORE_MODAL);
       } else {
-        if (card.values.bottom - board[i - 1][j].values.top > 0) {
-          score += card.values.bottom - board[i - 1][j].values.top;
-        }
+        score += card.values.top - board[i - 1][j].values.bottom > 0 ? 1 : 0;
+        score += 1 / (SCORE_MODAL + Math.abs(card.values.top - board[i - 1][j].values.bottom));
       }
     } else {
-      score += card.values.bottom;
+      score += 1 / (card.values.top + SCORE_MODAL);
     }
 
     // Right
-    if (j < 3) {
+    if (j < board[i].length - 1) {
       if (board[i][j + 1].isEmpty()) {
-        score -= card.values.left;
+        score += 1 / (card.values.right + SCORE_MODAL);
       } else {
-        if (card.values.left - board[i][j + i].values.right > 0) {
-          score += card.values.left - board[i][j + i].values.right;
-        }
+        score += card.values.right - board[i][j + 1].values.left > 0 ? 1 : 0;
+        score += 1 / (SCORE_MODAL + Math.abs(card.values.right - board[i][j + 1].values.left));
       }
     } else {
-      score += card.values.left;
+      score += 1 / (card.values.right + SCORE_MODAL);
     }
 
     // Bottom
-    if (i < 3) {
+    if (i < board.length - 1) {
       if (board[i + 1][j].isEmpty()) {
-        score -= card.values.top;
+        score += 1 / (card.values.bottom + SCORE_MODAL);
       } else {
-        if (card.values.top - board[i + 1][j].values.bottom > 0) {
-          score += card.values.top - board[i + 1][j].values.bottom;
-        }
+        score += card.values.bottom - board[i + 1][j].values.top > 0 ? 1 : 0;
+        score += 1 / (SCORE_MODAL + Math.abs(card.values.bottom - board[i + 1][j].values.top));
       }
     } else {
-      score += card.values.top;
+      score += 1 / (card.values.bottom + SCORE_MODAL);
     }
 
     return score;

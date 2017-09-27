@@ -60,6 +60,12 @@ export class Card implements Serializable<Card> {
     result.element = card.element;
     return result;
   }
+
+  static getEmptyCard(): Card {
+    return new Card().deserialize({
+      values: [0,0,0,0],
+    });
+  }
 }
 
 export class Values implements Serializable<Values> {

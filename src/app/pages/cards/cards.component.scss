@@ -1,3 +1,8 @@
-card {
-  margin-bottom: 5px;
+.list {
+  clear: both;
+  overflow: hidden;
+  .card {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
 }

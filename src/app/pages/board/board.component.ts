@@ -62,6 +62,7 @@ export class BoardComponent implements OnInit {
   }
 
   initHand(): void {
+    this.hand = [];
     for (let i = 0; i < 8; i++) {
       this.hand.push(this.cardsService.getRandom());
     }

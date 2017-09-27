@@ -23,5 +23,23 @@
     "type": "uncommon",
     "element": "ice",
     "values": [2,2,8,7]
+  }, {
+    "name": "Mana stash",
+    "img": "",
+    "type": "uncommon",
+    "element": "life",
+    "values": [6,6,6,6]
+  }, {
+    "name": "Scythe",
+    "img": "",
+    "type": "uncommon",
+    "element": "death",
+    "values": [4,8,9,3]
+  }, {
+    "name": "Mentalist",
+    "img": "",
+    "type": "uncommon",
+    "element": "psy",
+    "values": [7,1,9,3]
   }]
 }
