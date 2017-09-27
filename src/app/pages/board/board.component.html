@@ -21,10 +21,7 @@
   </div>
 </div>
 
-<div class="hand"
-  [@handState]="handState"
-  (mouseover)="toggleHand()"
-  (mouseout)="toggleHand()">
+<div class="hand">
   <card *ngFor="let card of hand; let i = index"
     [card]="card"
     [inHand]="true"

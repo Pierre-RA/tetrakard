@@ -40,6 +40,19 @@ import { Card } from '../../logic/cards';
       })),
       transition('hidden => shown', animate('100ms ease-in')),
       transition('shown => hidden', animate('100ms ease-out'))
+    ]),
+    trigger('swap', [
+      state('owner-blue', style({
+        transform: 'rotateY(360deg)'
+      })),
+      state('owner-pink', style({
+        transform: 'rotateY(360deg)'
+      })),
+      state('back', style({
+        transform: 'rotateY(180deg)'
+      })),
+      transition('blue => pink', animate('500ms ease-in')),
+      transition('pink => blue', animate('500ms ease-out'))
     ])
   ]
 })
@@ -53,7 +66,6 @@ export class CardComponent implements OnInit {
 
   handState: string;
   hoverState: string;
-  owner: string;
 
   constructor() { }
 

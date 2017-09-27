@@ -51,7 +51,7 @@ export class BoardComponent implements OnInit {
     this.title = 'TetraKard';
     this.handState = 'right';
     this.hand = [];
-    this.ia = 'Dumb-o';
+    this.ia = 'Smart-o';
     this.playingCard = null;
     this.board = new Board(this.cardsService, ADVERSARY_COLOR);
   }
