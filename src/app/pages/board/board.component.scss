@@ -64,6 +64,11 @@
   color: rgb(251,251,251);
 }
 
+.float {
+  float: left;
+  margin: 0 5px;
+}
+
 @media screen and (orientation:portrait) {
   .hand {
     position: absolute;

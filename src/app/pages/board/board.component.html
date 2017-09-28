@@ -14,6 +14,7 @@
   <div class="board">
     <div class="four-tiles" *ngFor="let row of board.getBoard(); let i = index">
       <card *ngFor="let card of row; let j = index"
+        class="float"
         [card]="card"
         (selected)="onBoardCardSelected(i, j)">
       </card>
@@ -23,8 +24,10 @@
 
 <div class="hand">
   <card *ngFor="let card of hand; let i = index"
+    class="float"
     [card]="card"
     [inHand]="true"
+    [state]="blue"
     [position]="i"
     (selected)="onCardSelected(i)">
   </card>

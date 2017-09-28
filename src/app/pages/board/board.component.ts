@@ -83,7 +83,7 @@ export class BoardComponent implements OnInit {
       this.board.getBoard()[i][j].setOwner(USER_COLOR);
       this.playingCard = null;
       this.highlightEmptyCells();
-      this.board.setOwners(i, j, USER_COLOR);
+      this.board.setOwners(i, j, 'blue');
       setTimeout(() => {
         this.board.adversaryTurn();
       }, 500);

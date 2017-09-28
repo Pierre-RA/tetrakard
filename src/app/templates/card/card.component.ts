@@ -14,45 +14,26 @@ import { Card } from '../../logic/cards';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
   animations: [
-    trigger('cardHover', [
-      state('inactive', style({
-        transform: 'scale(1)',
-        borderColor: 'grey'
-      })),
-      state('active', style({
-        transform: 'scale(1.05)',
-        borderColor: 'gold'
-      })),
-      transition('inactive => active', animate('100ms ease-in')),
-      transition('active => inactive', animate('100ms ease-out'))
-    ]),
-    trigger('cardHand', [
-      state('hidden', style({
-        height: '205px',
-        position: 'absolute',
-        zIndex: 10,
-      })),
-      state('shown', style({
-        height: '205px',
-        position: 'absolute',
-        transform: 'scale(1.05)',
-        zIndex: 200,
-      })),
-      transition('hidden => shown', animate('100ms ease-in')),
-      transition('shown => hidden', animate('100ms ease-out'))
-    ]),
-    trigger('swap', [
-      state('owner-blue', style({
-        transform: 'rotateY(360deg)'
-      })),
-      state('owner-pink', style({
-        transform: 'rotateY(360deg)'
-      })),
+    trigger('flipState', [
       state('back', style({
         transform: 'rotateY(180deg)'
       })),
-      transition('blue => pink', animate('500ms ease-in')),
-      transition('pink => blue', animate('500ms ease-out'))
+      state('front', style({
+        transform: 'rotateY(0)',
+        backgroundColor: 'white'
+      })),
+      state('blue', style({
+        transform: 'rotateY(360deg)',
+        backgroundColor: 'skyblue'
+      })),
+      state('pink', style({
+        transform: 'rotateY(0deg)',
+        backgroundColor: 'lightpink'
+      })),
+      transition('front => back', animate('500ms ease-out')),
+      transition('back => front', animate('500ms ease-in')),
+      transition('blue => pink', animate('1000ms ease-in-out')),
+      transition('pink => blue', animate('1000ms ease-in-out'))
     ])
   ]
 })
@@ -61,30 +42,21 @@ export class CardComponent implements OnInit {
   @Input() card: Card;
   @Input() position: number;
   @Input() inHand: boolean;
+  @Input() state: string;
   @Output() selected: EventEmitter<number> =
     new EventEmitter();
 
-  handState: string;
-  hoverState: string;
-
-  constructor() { }
-
-  ngOnInit() {
-    if (this.inHand) {
-      this.handState = 'hidden';
-    } else {
-      this.hoverState = 'inactive';
+  toggleFlip() {
+    if (this.card.state == 'pink') {
+      this.card.state = 'blue';
+    } else if (this.card.state == 'blue') {
+      this.card.state = 'pink';
     }
   }
 
-  toggleState(): void {
-    if (this.card.type != 'abstract') {
-      if (this.handState) {
-        this.handState = this.handState == 'hidden' ? 'shown' : 'hidden';
-      }
-      if (this.hoverState) {
-        this.hoverState = this.hoverState == 'inactive' ? 'active' : 'inactive';
-      }
+  ngOnInit() {
+    if (this.inHand) {
+      this.card.state = 'blue';
     }
   }
 

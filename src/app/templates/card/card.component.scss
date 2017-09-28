@@ -6,21 +6,186 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff88', endColorstr='#ffff88',GradientType=1 ) !important;
 }
 
-.card {
-  height: 165px;
-  width: 140px;
-  border-radius: 5px;
-  border: solid rgba(0,0,0,0.3) 1px;
-  background-color: darkslategrey;
-  box-shadow: 1px 1px 0px rgba(0,0,0,0.1);
-  float: left;
-  padding: 4px;
-  margin: 0 5px;
+@mixin stone {
+  background: linear-gradient(to bottom, #D5DEE7 0%, #E8EBF2 50%, #E2E7ED 100%), linear-gradient(to bottom, rgba(0,0,0,0.02) 50%, rgba(255,255,255,0.02) 61%, rgba(0,0,0,0.02) 73%), linear-gradient(33deg, rgba(255,255,255,0.20) 0%, rgba(0,0,0,0.20) 100%);
+  background-blend-mode: normal,color-burn;
+}
+
+.old {
+  .card {
+    height: 165px;
+    width: 140px;
+    border-radius: 5px;
+    border: solid rgba(0,0,0,0.3) 1px;
+    background-color: darkslategrey;
+    box-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+    float: left;
+    padding: 4px;
+    margin: 0 5px;
+    .inner {
+      border-radius: 3px;
+      background-color: white;
+      height: 100%;
+      position: relative;
+      font-family: 'Orbitron', sans-serif;
+      text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+      .title {
+        position: absolute;
+        bottom: 2px;
+        width: 100%;
+        font-size: 0.9em;
+      }
+      .left {
+        position: absolute;
+        bottom: 60px;
+        left: 20px;
+      }
+      .right {
+        position: absolute;
+        bottom: 60px;
+        right: 20px;
+      }
+      .top {
+        position: absolute;
+        bottom: 90px;
+        right: 60px;
+      }
+      .bottom {
+        position: absolute;
+        bottom: 30px;
+        right: 60px;
+      }
+      .element {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        font-size: 0.8em;
+        color: black;
+        .fa-circle {
+          color: silver;
+        }
+      }
+      .element-wood,
+      .element-earth {
+        .fa-circle {
+          color: sienna;
+        }
+        color: white;
+      }
+      .element-water {
+        .fa-circle {
+          color: royalblue;
+        }
+        color: white;
+      }
+      .element-lava,
+      .element-fire {
+        .fa-circle {
+          color: firebrick;
+        }
+        color: yellow;
+      }
+      .element-air {
+        .fa-circle {
+          color: lightcyan;
+        }
+        color: grey;
+      }
+      .element-magnetic,
+      .element-metal {
+        .fa-circle {
+          color: lightgrey;
+        }
+        color: white;
+      }
+      .element-magnetic {
+        color: black;
+      }
+      .element-ice {
+        .fa-circle {
+          color: lightgrey;
+        }
+        color: royalblue;
+      }
+      .element-thunder {
+        .fa-circle {
+          color: royalblue;
+        }
+        color: yellow;
+      }
+      .element-life {
+        .fa-circle {
+          color: anticwhite;
+        }
+        color: lightpink;
+      }
+      .element-death {
+        .fa-circle {
+          color: black;
+        }
+        color: white;
+      }
+      .element-void {
+        .fa-circle {
+          color: purple;
+        }
+        color: white;
+      }
+      .element-psy {
+        .fa-circle {
+          color: lightblue;
+        }
+        color: black;
+      }
+      .element-time {
+        .fa-circle {
+          color: grey;
+        }
+        color: black;
+      }
+    }
+    .owner-blue {
+      background-color: skyblue;
+    }
+    .owner-pink {
+      background-color: lightpink;
+    }
+  }
+  .card-uncommon {
+    background-color: teal;
+  }
+  .card-rare {
+    background-color: mediumblue;
+    box-shadow: 0 0 10px dodgerblue;
+  }
+  .card-epic {
+    background-color: purple;
+    box-shadow: 0 0 10px magenta;
+  }
+  .card-legendary {
+    background-color: orange;
+    box-shadow: 0 0 10px gold;
+  }
+  .card-abstract {
+    border: solid rgba(222,184,135,0.3) 1px;
+    background-color: peru;
+    .inner {
+      background-color: sandybrown;
+      line-height: 155px;
+      color: chocolate;
+      text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+    }
+  }
+
+  .highlight {
+    @include yellow;
+  }
+}
+
+
+/*************************************************/
+.card2 {
   .inner {
-    border-radius: 3px;
-    background-color: white;
-    height: 100%;
-    position: relative;
     font-family: 'Orbitron', sans-serif;
     text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
     .title {
@@ -28,6 +193,7 @@
       bottom: 2px;
       width: 100%;
       font-size: 0.9em;
+      text-align: center;
     }
     .left {
       position: absolute;
@@ -49,128 +215,43 @@
       bottom: 30px;
       right: 60px;
     }
-    .element {
-      position: absolute;
-      top: 6px;
-      left: 6px;
-      font-size: 0.8em;
-      color: black;
-      .fa-circle {
-        color: silver;
-      }
-    }
-    .element-wood,
-    .element-earth {
-      .fa-circle {
-        color: sienna;
-      }
-      color: white;
-    }
-    .element-water {
-      .fa-circle {
-        color: royalblue;
-      }
-      color: white;
-    }
-    .element-lava,
-    .element-fire {
-      .fa-circle {
-        color: firebrick;
-      }
-      color: yellow;
-    }
-    .element-air {
-      .fa-circle {
-        color: lightcyan;
-      }
-      color: grey;
-    }
-    .element-magnetic,
-    .element-metal {
-      .fa-circle {
-        color: lightgrey;
-      }
-      color: white;
-    }
-    .element-magnetic {
-      color: black;
-    }
-    .element-ice {
-      .fa-circle {
-        color: lightgrey;
-      }
-      color: royalblue;
-    }
-    .element-thunder {
-      .fa-circle {
-        color: royalblue;
-      }
-      color: yellow;
-    }
-    .element-life {
-      .fa-circle {
-        color: anticwhite;
-      }
-      color: lightpink;
-    }
-    .element-death {
-      .fa-circle {
-        color: black;
-      }
-      color: white;
-    }
-    .element-void {
-      .fa-circle {
-        color: purple;
-      }
-      color: white;
-    }
-    .element-psy {
-      .fa-circle {
-        color: lightblue;
-      }
-      color: black;
-    }
-    .element-time {
-      .fa-circle {
-        color: grey;
-      }
-      color: black;
-    }
   }
-  .owner-blue {
-    background-color: skyblue;
-  }
-  .owner-pink {
-    background-color: lightpink;
-  }
-}
-.card-uncommon {
-  background-color: teal;
-}
-.card-rare {
-  background-color: mediumblue;
-  box-shadow: 0 0 10px dodgerblue;
-}
-.card-epic {
-  background-color: purple;
-  box-shadow: 0 0 10px magenta;
-}
-.card-legendary {
-  background-color: orange;
-  box-shadow: 0 0 10px gold;
-}
-.card-abstract {
-  border: solid rgba(222,184,135,0.3) 1px;
-  background-color: peru;
-  .inner {
-    background-color: sandybrown;
-    line-height: 155px;
-    color: chocolate;
-    text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
-  }
-}
 
-.highlight {
-  @include yellow;
+  .inner-mana {
+    @include stone;
+  }
+
+  .card-wrapper {
+    perspective: 800px;
+  }
+
+  .card-box {
+    position: relative;
+    width: 140px;
+    height: 160px;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    border: solid purple 1px;
+  }
+  .card-side {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    cursor: pointer;
+    user-select: none;
+  }
+  .card-front {
+  }
+  .card-back {
+    transform: rotateY(179.9deg);
+    border: solid rgba(222,184,135,0.3) 1px;
+    background-color: peru;
+    .inner {
+      background-color: sandybrown;
+      line-height: 155px;
+      color: chocolate;
+      text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+    }
+  }
 }

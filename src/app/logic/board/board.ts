@@ -64,10 +64,11 @@ export class Board {
     let response: Response = this.adversary.playTurn(this.board);
     let i = response.boardPosition.y;
     let j = response.boardPosition.x;
-    let playingCard = this.adversary.getHand()[response.handCard];
+    let playingCard = this.adversary.removeCard(response.handCard);
     this.board[i][j] = playingCard;
     this.board[i][j].setOwner(this.adversaryColor);
-    this.setOwners(i, j, this.adversaryColor);
+    this.board[i][j].setState('pink');
+    this.setOwners(i, j, 'pink');
   }
 
   setOwners(i: number, j: number, color: string): void {
@@ -78,6 +79,7 @@ export class Board {
       this.board[i][j].values.left
     ) {
       this.board[i][j - 1].setOwner(color);
+      this.board[i][j - 1].setState(color);
     }
 
     // value top
@@ -87,6 +89,7 @@ export class Board {
       this.board[i][j].values.top
     ) {
       this.board[i - 1][j].setOwner(color);
+      this.board[i - 1][j].setState(color);
     }
 
     // value right
@@ -96,6 +99,7 @@ export class Board {
       this.board[i][j].values.right
     ) {
       this.board[i][j + 1].setOwner(color);
+      this.board[i][j + 1].setState(color);
     }
 
     // value bottom
@@ -105,6 +109,7 @@ export class Board {
       this.board[i][j].values.bottom
     ) {
       this.board[i + 1][j].setOwner(color);
+      this.board[i + 1][j].setState(color);
     }
 
     this.setScore();

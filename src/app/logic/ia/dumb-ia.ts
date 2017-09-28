@@ -22,6 +22,15 @@ export class DumbIA implements IA {
     return this.name;
   }
 
+  removeCard(i: number): Card {
+    let card: Card = this.hand[i];
+    let index = this.hand.indexOf(this.hand[i], 0);
+    if (index > -1) {
+      this.hand.splice(index, 1);
+    }
+    return card;
+  }
+
   playTurn(board: Array<Array<Card>>): Response {
     let spot: BoardPosition = this.chooseFreeSpace(board);
     if (!spot) {

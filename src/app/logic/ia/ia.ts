@@ -4,6 +4,8 @@ export interface IA {
 
   getHand(): Array<Card>;
 
+  removeCard(i: number): Card;
+
   setHand(hand: Array<Card>): void;
 
   getName(): string;
