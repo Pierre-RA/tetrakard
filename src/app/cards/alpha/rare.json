@@ -3,31 +3,31 @@
     "name": "Coil",
     "img": "",
     "type": "rare",
-    "element": "magnetic",
+    "element": "metal",
     "values": [10,2,8,3]
   }, {
     "name": "Volcano floor",
     "img": "",
     "type": "rare",
-    "element": "lava",
+    "element": "fire",
     "values": [1,2,4,10]
   }, {
     "name": "Dark forest",
     "img": "",
     "type": "rare",
-    "element": "wood",
+    "element": "earth",
     "values": [9,4,11,2]
   }, {
     "name": "Glacier",
     "img": "",
     "type": "rare",
-    "element": "ice",
+    "element": "water",
     "values": [9,8,7,9]
   }, {
     "name": "Thunderstorm",
     "img": "",
     "type": "rare",
-    "element": "thunder",
+    "element": "air",
     "values": [2,13,4,5]
   }]
 }

@@ -3,7 +3,7 @@
     "name": "Zeus",
     "img": "",
     "type": "legendary",
-    "element": "thunder",
+    "element": "air",
     "values": [16,9,15,15]
   }]
 }

@@ -9,7 +9,7 @@
     "name": "Bald Monkey",
     "img": "",
     "type": "uncommon",
-    "element": "wood",
+    "element": "earth",
     "values": [3,6,3,1]
   }, {
     "name": "Fire bowl",
@@ -21,7 +21,7 @@
     "name": "Ice cold",
     "img": "",
     "type": "uncommon",
-    "element": "ice",
+    "element": "water",
     "values": [2,2,8,7]
   }, {
     "name": "Mana stash",
@@ -41,5 +41,11 @@
     "type": "uncommon",
     "element": "psy",
     "values": [7,1,9,3]
+  }, {
+    "name": "Excavation",
+    "img": "",
+    "type": "uncommon",
+    "element": "void",
+    "values": [2,10,4,3]
   }]
 }

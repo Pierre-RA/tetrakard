@@ -1,33 +1,26 @@
-# Tetra
-
 # TetraKard
 
-* 4x4 layout
-* basic elements
- * earth    +metal     -water 
- * water    +air       -fire
- * fire     +earth     -metal
- * air      +fire      -earth
- * metal    +water     -air
-* evolved elements
- * wood     +earth     -air       -water
- * ice      +water     -earth     -fire
- * lava     +fire      -water     -magnetic
- * thunder  +air       -metal     -earth
- * magnetic +metal     -fire      -air
-* meta elements
- * life     +wood      -ice       -lava      -thunder
- * death    +lava      -wood      -thunder   -magnetic
- * void     +magnetic  -thunder   -ice       -lava
- * psy      +thunder   -magnetic  -wood      -ice
- * time     +ice       -lava      -magnetic  -wood
-* rank
- * common    - black   000000
- * uncommon  - silver  c0c0c0
- * rare      - red     ff0000
- * epic      - purple  4b0082
- * legendary - gold    ffd700
- 
+## Elements
+
+### Basic elements
+
+| Name     | Improve   | Suppress |
+|----------|-----------|----------|
+| earth    | metal     | water    |
+| water    | air       | fire     |
+| fire     | earth     | metal    |
+| air      | fire      | earth    |
+| metal    | water     | air      |
+
+### Advanced elements
+
+| Name  | Effect   | Value |
+|-------|----------|------:|
+| life  | earth    | +1    |
+| death |
+| void  |
+| psy   |
+| time  |
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.0.

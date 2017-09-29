@@ -1,8 +1,9 @@
 .list {
   clear: both;
   overflow: hidden;
-  .card {
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
+}
+
+.float {
+  float: left;
+  margin: 5px;
 }

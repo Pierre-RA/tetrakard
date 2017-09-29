@@ -13,48 +13,8 @@
 
 .old {
   .card {
-    height: 165px;
-    width: 140px;
-    border-radius: 5px;
-    border: solid rgba(0,0,0,0.3) 1px;
-    background-color: darkslategrey;
-    box-shadow: 1px 1px 0px rgba(0,0,0,0.1);
-    float: left;
-    padding: 4px;
-    margin: 0 5px;
     .inner {
-      border-radius: 3px;
-      background-color: white;
-      height: 100%;
-      position: relative;
-      font-family: 'Orbitron', sans-serif;
-      text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
-      .title {
-        position: absolute;
-        bottom: 2px;
-        width: 100%;
-        font-size: 0.9em;
-      }
-      .left {
-        position: absolute;
-        bottom: 60px;
-        left: 20px;
-      }
-      .right {
-        position: absolute;
-        bottom: 60px;
-        right: 20px;
-      }
-      .top {
-        position: absolute;
-        bottom: 90px;
-        right: 60px;
-      }
-      .bottom {
-        position: absolute;
-        bottom: 30px;
-        right: 60px;
-      }
+
       .element {
         position: absolute;
         top: 6px;
@@ -98,21 +58,6 @@
         }
         color: white;
       }
-      .element-magnetic {
-        color: black;
-      }
-      .element-ice {
-        .fa-circle {
-          color: lightgrey;
-        }
-        color: royalblue;
-      }
-      .element-thunder {
-        .fa-circle {
-          color: royalblue;
-        }
-        color: yellow;
-      }
       .element-life {
         .fa-circle {
           color: anticwhite;
@@ -144,37 +89,6 @@
         color: black;
       }
     }
-    .owner-blue {
-      background-color: skyblue;
-    }
-    .owner-pink {
-      background-color: lightpink;
-    }
-  }
-  .card-uncommon {
-    background-color: teal;
-  }
-  .card-rare {
-    background-color: mediumblue;
-    box-shadow: 0 0 10px dodgerblue;
-  }
-  .card-epic {
-    background-color: purple;
-    box-shadow: 0 0 10px magenta;
-  }
-  .card-legendary {
-    background-color: orange;
-    box-shadow: 0 0 10px gold;
-  }
-  .card-abstract {
-    border: solid rgba(222,184,135,0.3) 1px;
-    background-color: peru;
-    .inner {
-      background-color: sandybrown;
-      line-height: 155px;
-      color: chocolate;
-      text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
-    }
   }
 
   .highlight {
@@ -188,37 +102,10 @@
   .inner {
     font-family: 'Orbitron', sans-serif;
     text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
-    .title {
-      position: absolute;
-      bottom: 2px;
-      width: 100%;
-      font-size: 0.9em;
-      text-align: center;
+    p {
+      margin: 0;
+      padding: 0;
     }
-    .left {
-      position: absolute;
-      bottom: 60px;
-      left: 20px;
-    }
-    .right {
-      position: absolute;
-      bottom: 60px;
-      right: 20px;
-    }
-    .top {
-      position: absolute;
-      bottom: 90px;
-      right: 60px;
-    }
-    .bottom {
-      position: absolute;
-      bottom: 30px;
-      right: 60px;
-    }
-  }
-
-  .inner-mana {
-    @include stone;
   }
 
   .card-wrapper {
@@ -231,7 +118,6 @@
     height: 160px;
     transform-style: preserve-3d;
     transition: transform 1s;
-    border: solid purple 1px;
   }
   .card-side {
     width: 100%;
@@ -240,18 +126,191 @@
     backface-visibility: hidden;
     cursor: pointer;
     user-select: none;
+    border-radius: 5px;
+    border: solid rgba(222,184,135,0.4) 4px;
   }
-  .card-front {
+  .card-front,
+  .card-blue,
+  .card-pink {
+    .inner {
+      .title {
+        position: absolute;
+        bottom: 4px;
+        left: -4px;
+        width: 140px;
+        font-size: 0.9em;
+        text-align: center;
+        color: white;
+        box-shadow: 0 0 1px rgba(0,0,0,0.3);
+      }
+      .left,
+      .top,
+      .right,
+      .bottom {
+        position: absolute;
+        text-align: center;
+        width: 10px;
+      }
+      .left {
+        bottom: 45px;
+        left: 20px;
+      }
+      .right {
+        bottom: 45px;
+        right: 20px;
+      }
+      .top {
+        bottom: 60px;
+        right: 60px;
+      }
+      .bottom {
+        bottom: 25px;
+        right: 60px;
+      }
+      .element {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        font-size: 0.8em;
+        color: black;
+        text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+        .fa-circle {
+          color: lightgrey;
+          text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+        }
+      }
+      .element-earth {
+        color: rgb(244,164,96);
+        .fa-circle {
+          color: brown;
+        }
+      }
+      .element-water {
+        color: rgb(0, 132, 150);
+        .fa-circle {
+          color: rgb(34, 204, 226);
+        }
+      }
+      .element-fire {
+        color: rgb(226, 56, 34);
+        .fa-circle {
+          color: rgb(226, 184, 34);
+        }
+      }
+      .element-air {
+        color: lightgrey;
+        .fa-circle {
+          color: white;
+        }
+      }
+      .element-metal {
+        color: darkslategrey;
+        .fa-circle {
+          color: silver;
+        }
+      }
+      .element-life {
+        color: rgb(255,69,0);
+        .fa-circle {
+          color: rgb(230, 255, 242);
+        }
+      }
+      .element-death {
+        color: rgb(250,250,250);
+        .fa-circle {
+          color: rgb(36, 0, 64);
+        }
+      }
+      .element-void {
+        color: rgb(226, 68, 207);
+        .fa-circle {
+          color: rgb(73, 0, 65);
+        }
+      }
+      .element-psy {
+        color: rgb(114, 255, 201);
+        .fa-circle {
+          color: rgb(226, 68, 128);
+        }
+      }
+      .element-time {
+        color: rgb(52, 36, 36);
+        .fa-circle {
+          color: rgb(255, 248, 231);
+        }
+      }
+    }
+  }
+  .type-mana {
+    @include stone;
+    .element {
+      top: 45px !important;
+      right: 0px !important;
+      width: 100% !important;
+      font-size: 1.4em !important;
+      text-align: center;
+    }
+    .title {
+      background-color: darkslategrey;
+    }
+    border-color: rgba(45,45,45,0.7);
+  }
+  .type-common {
+    .title {
+      background-color: grey;
+    }
+    border-color: rgba(45,45,45,0.7);
+  }
+  .type-uncommon {
+    .title {
+      background-color: rgb(205, 127, 50);
+    }
+    border-color: rgba(155,77,0,0.7);
+  }
+  .type-rare {
+    .title {
+      background-color: rgb(89, 130, 213);
+    }
+    border-color: rgba(89, 130, 213, 0.8);
+    box-shadow: 0 0 10px dodgerblue;
+  }
+  .type-epic {
+    .title {
+      background-color: purple;
+    }
+    box-shadow: 0 0 10px magenta;
+    border-color: rgba(128, 0, 128, 0.8);
+  }
+  .type-legendary {
+    .title {
+      background-color: orange;
+    }
+    box-shadow: 0 0 10px gold;
+    border-color: rgba(225, 135, 0, 0.8);
   }
   .card-back {
-    transform: rotateY(179.9deg);
-    border: solid rgba(222,184,135,0.3) 1px;
+    transform: rotateY(180deg);
     background-color: peru;
     .inner {
       background-color: sandybrown;
-      line-height: 155px;
+      line-height: 152px;
       color: chocolate;
       text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+      .left,
+      .top,
+      .right,
+      .bottom {
+        display: none;
+      }
     }
+  }
+  .card-front {
+    background-color: lightgrey;
+  }
+  .card-blue {
+    background-color: skyblue;
+  }
+  .card-pink {
+    background-color: lightpink;
   }
 }

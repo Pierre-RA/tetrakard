@@ -3,7 +3,7 @@
     <div class="card-box"
       (click)="onClick()"
       [@flipState]="card.state">
-      <div class="card-side card-front">
+      <div class="card-side card-{{card.state}} type-{{card.type}}">
         <div class="inner inner-fine" *ngIf="card.type != 'mana'">
           <p class="title">
             {{card.name}}
@@ -20,11 +20,23 @@
           <p class="bottom">
             {{card.values.bottom | number}}
           </p>
+          <div class="element element-{{card.element.type}}" *ngIf="card.element.hasElement()">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-fw fa-stack-1x fa-{{card.element.fa}}" aria-hidden="true"></i>
+            </span>
+          </div>
         </div>
         <div class="inner inner-mana" *ngIf="card.type == 'mana'">
           <p class="title">
             {{card.name}}
           </p>
+          <div class="element element-{{card.element.type}}" *ngIf="card.element.hasElement()">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-fw fa-stack-1x fa-{{card.element.fa}}" aria-hidden="true"></i>
+            </span>
+          </div>
         </div>
       </div>
       <div class="card-side card-back">
@@ -37,87 +49,3 @@
     </div>
   </div>
 </div>
-
-<!-- <div class="card2" *ngIf="card"
-  [@swap]="card.type"
-  (click)="onClick()">
-  <div class="card2-face card2-side">
-    <div class="card2-normal" *ngIf="card.type != 'mana'">
-      <div class="card2-element card2-element-{{card.element.type}}">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-circle fa-stack-2x"></i>
-          <i class="fa fa-fw fa-stack-1x fa-{{card.element.fa}}" aria-hidden="true"></i>
-        </span>
-      </div>
-      <p class="card2-title">
-        {{card.name}}{{card.state}}
-      </p>
-      <p class="card2-left">
-        {{card.values.left | number}}
-      </p>
-      <p class="card2-top">
-        {{card.values.top | number}}
-      </p>
-      <p class="card2-right">
-        {{card.values.right | number}}
-      </p>
-      <p class="card2-bottom">
-        {{card.values.bottom | number}}
-      </p>
-    </div>
-    <div class="card2-mana" *ngIf="card.type != 'mana'">
-      <div class="card2-element card2-element-{{card.element.type}}">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-circle fa-stack-2x"></i>
-          <i class="fa fa-fw fa-stack-1x fa-{{card.element.fa}}" aria-hidden="true"></i>
-        </span>
-      </div>
-    </div>
-  </div>
-  <div class="card2-back card2-side">
-    <div class="inner">
-      <p>
-        TetraKard{{card.state}}
-      </p>
-    </div>
-  </div>
-</div> -->
-
-
-
-
-<!-- <div class="card card-{{card.type}} position-{{position}}" *ngIf="card"
-  [@cardHover]="hoverState"
-  [@swap]="card.owner"
-  (mouseover)="toggleState()"
-  (mouseout)="toggleState()"
-  (click)="onClick()">
-  <div class="inner {{card.owner}}" *ngIf="card.type != 'abstract'">
-    <div class="element element-{{card.element.type}}">
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-fw fa-stack-1x fa-{{card.element.fa}}" aria-hidden="true"></i>
-      </span>
-    </div>
-    <p class="title text-center">
-      {{card.name}}
-    </p>
-    <p class="left">
-      {{card.values.left | number}}
-    </p>
-    <p class="top">
-      {{card.values.top | number}}
-    </p>
-    <p class="right">
-      {{card.values.right | number}}
-    </p>
-    <p class="bottom">
-      {{card.values.bottom | number}}
-    </p>
-  </div>
-  <div class="inner {{card.highlight}}" *ngIf="card.type == 'abstract'">
-    <p>
-      TetraKard
-    </p>
-  </div>
-</div> -->

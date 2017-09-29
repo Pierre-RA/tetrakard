@@ -19,16 +19,13 @@ import { Card } from '../../logic/cards';
         transform: 'rotateY(180deg)'
       })),
       state('front', style({
-        transform: 'rotateY(0)',
-        backgroundColor: 'white'
+        transform: 'rotateY(0)'
       })),
       state('blue', style({
-        transform: 'rotateY(360deg)',
-        backgroundColor: 'skyblue'
+        transform: 'rotateY(360deg)'
       })),
       state('pink', style({
-        transform: 'rotateY(0deg)',
-        backgroundColor: 'lightpink'
+        transform: 'rotateY(0deg)'
       })),
       transition('front => back', animate('500ms ease-out')),
       transition('back => front', animate('500ms ease-in')),

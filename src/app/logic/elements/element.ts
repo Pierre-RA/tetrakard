@@ -15,6 +15,10 @@ export class Element implements Serializable<Element> {
     return this.type;
   }
 
+  hasElement(): boolean {
+    return this.type != 'abstract';
+  }
+
   static getFa(type: string): string {
     switch(type) {
       case 'earth':
@@ -27,20 +31,10 @@ export class Element implements Serializable<Element> {
         return 'cloud';
       case 'metal':
         return 'cog';
-      case 'wood':
-        return 'tree';
-      case 'ice':
-        return 'snowflake-o';
-      case 'lava':
-        return 'google-wallet';
-      case 'thunder':
-        return 'bolt';
-      case 'magnetic':
-        return 'magnet';
       case 'life':
-        return 'heart';
+        return 'heartbeat';
       case 'death':
-        return 'gavel';
+        return 'balance-scale';
       case 'void':
         return 'bullseye';
       case 'psy':

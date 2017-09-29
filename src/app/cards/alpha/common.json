@@ -3,115 +3,96 @@
     "name": "Ground fighter",
     "img": "",
     "type": "common",
-    "element": "earth",
     "values": [1,1,3,3]
   }, {
     "name": "Ground soldier",
     "img": "",
     "type": "common",
-    "element": "earth",
     "values": [1,2,1,3]
   }, {
     "name": "Sea fighter",
     "img": "",
     "type": "common",
-    "element": "water",
     "values": [1,0,3,4]
   }, {
     "name": "Sea soldier",
     "img": "",
     "type": "common",
-    "element": "water",
     "values": [1,2,3,1]
   }, {
     "name": "Fire fighter",
     "img": "",
     "type": "common",
-    "element": "fire",
     "values": [2,3,1,1]
   }, {
     "name": "Fire soldier",
     "img": "",
     "type": "common",
-    "element": "fire",
     "values": [2,1,3,1]
   }, {
     "name": "Fighter pilot",
     "img": "",
     "type": "common",
-    "element": "air",
     "values": [1,2,2,1]
   }, {
     "name": "soldier pilot",
     "img": "",
     "type": "common",
-    "element": "air",
     "values": [1,3,1,2]
   }, {
     "name": "War fighter",
     "img": "",
     "type": "common",
-    "element": "metal",
     "values": [2,1,1,2]
   }, {
     "name": "War soldier",
     "img": "",
     "type": "common",
-    "element": "metal",
     "values": [1,1,3,2]
   }, {
     "name": "Stone rock",
     "img": "",
     "type": "common",
-    "element": "earth",
     "values": [1,0,0,1]
   }, {
     "name": "Scorpion",
     "img": "",
     "type": "common",
-    "element": "earth",
     "values": [1,2,1,1]
   }, {
     "name": "Sand crawler",
     "img": "",
     "type": "common",
-    "element": "earth",
     "values": [1,1,1,3]
   }, {
     "name": "Scary monster",
     "img": "",
     "type": "common",
-    "element": "death",
     "values": [1,4,2,3]
   }, {
     "name": "wood plank",
     "img": "",
     "type": "common",
-    "element": "death",
     "values": [4,1,5,2]
   }, {
     "name": "Icicle",
     "img": "",
     "type": "common",
-    "element": "ice",
     "values": [1,7,0,0]
   }, {
     "name": "Mana spot",
     "img": "",
     "type": "common",
-    "element": "death",
-    "values": [4,4,4,4]
+    "values": [3,3,3,3]
   }, {
     "name": "Empty hole",
     "img": "",
     "type": "common",
-    "element": "death",
     "values": [1,1,1,7]
   }, {
     "name": "Clock",
     "img": "",
     "type": "common",
-    "element": "death",
-    "values": [2,3,2,3]
+    "values": [2,4,2,4]
   }]
 }
