@@ -44,6 +44,8 @@ export class BoardComponent implements OnInit {
   playingCard: Card;
   board: Board;
   ia: string;
+  tLeft: Card;
+  tRight: Card;
 
   constructor(
     private cardsService: CardsService
@@ -54,6 +56,8 @@ export class BoardComponent implements OnInit {
     this.ia = 'Smart-o';
     this.playingCard = null;
     this.board = new Board(this.cardsService, ADVERSARY_COLOR);
+    this.tLeft = this.cardsService.getRandom();
+    this.tRight = Card.getEmptyCard();
   }
 
   ngOnInit() {
@@ -88,6 +92,15 @@ export class BoardComponent implements OnInit {
         this.board.adversaryTurn();
       }, 500);
     }
+  }
+
+  onCardDraggedOnBoard(i: number, j: number, card: Card): void {
+    this.playingCard = card;
+    this.onBoardCardSelected(i, j);
+  }
+
+  dropped() {
+    console.log('dropped');
   }
 
   highlightEmptyCells(): void {

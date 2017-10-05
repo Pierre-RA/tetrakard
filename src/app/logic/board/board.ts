@@ -36,11 +36,7 @@ export class Board {
   }
 
   initAdversary(name: string, type?: string): void {
-    if (type == 'smart') {
-      this.adversary = new SmartIA(name);
-    } else {
-      this.adversary = new DumbIA(name);
-    }
+    this.adversary = new SmartIA(name);
     let hand = [];
     for (let i = 0; i < 8; i++) {
       hand.push(this.cardsService.getRandom());
