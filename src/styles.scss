@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-@import url('https://fonts.googleapis.com/css?family=Orbitron:500');
+@import url('https://fonts.googleapis.com/css?family=Orbitron:500|Press+Start+2P');
 
 @mixin wood {
   background: linear-gradient(to left, rgba(238,196,135,.5) 0%,rgba(243,207,154,.5) 3%,rgba(248,216,162,.5) 6%,rgba(243,207,154,.5) 6%,rgba(243,207,154,.5) 9%,rgba(241,202,136,.5) 12%,rgba(243,207,154,.5) 15%,rgba(244,208,158,.5) 17%,rgba(243,207,154,.5) 19%,rgba(243,207,154,.5) 21%,rgba(250,221,176,.5) 23%,rgba(250,221,176,.5) 25%,rgba(243,207,154,.5) 27%,rgba(238,200,138,.5) 29%,rgba(243,207,154,.5) 29%,rgba(243,207,154,.5) 32%,rgba(243,207,154,.5) 34%,rgba(243,207,154,.5) 37%,rgba(250,221,176,.5) 40%,rgba(250,221,176,.5) 43%,rgba(243,207,154,.5) 43%,rgba(243,207,154,.5) 44%,rgba(243,207,154,.5) 47%,rgba(238,200,138,.5) 49%,rgba(243,207,154,.5) 52%,rgba(250,221,176,.5) 54%,rgba(244,208,158,.5) 56%,rgba(243,207,154,.5) 59%,rgba(244,208,158,.5) 61%,rgba(250,221,176,.5) 64%,rgba(243,207,154,.5) 64%,rgba(244,208,158,.5) 66%,rgba(243,207,154,.5) 69%,rgba(248,216,162,.5) 71%,rgba(243,207,154,.5) 74%,rgba(243,207,154,.5) 76%,rgba(243,207,154,.5) 77%,rgba(243,207,154,.5) 80%,rgba(250,221,176,.5) 81%,rgba(243,207,154,.5) 83%,rgba(250,221,176,.5) 83%,rgba(250,221,176,.5) 85%,rgba(243,207,154,.5) 87%,rgba(250,221,176,.5) 89%,rgba(250,221,176,.5) 91%,rgba(243,207,154,.5) 92%,rgba(248,216,162,.5) 96%,rgba(243,207,154,.5) 97%,rgba(243,207,154,.5) 97%,rgba(243,207,154,.5) 98%,rgba(243,207,154,.5) 100%),
@@ -13,4 +13,69 @@
 
 body {
   @include wood;
+}
+
+.start-btn{
+  text-align: center;
+  display: inline-block;
+  margin: 5px;
+  font-weight: bold;
+  padding: 10px 0 10px 10px ;
+  background-color: rgb(238,196,135);
+  text-shadow: -1px -1px black, 1px 1px white;
+  color: rgb(139,69,19);
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+  box-shadow: 0 .2em rgb(138,96,35);
+  cursor: pointer;
+}
+
+.start-btn:hover {
+  color: rgb(139,69,19);
+  text-decoration: none;
+}
+
+.start-btn:active,
+.start-btn.active {
+  box-shadow: none;
+  position: relative;
+  top: .2em;
+}
+
+.start {
+  h1 {
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    font-size: 5em;
+    margin-top: 50px;
+    color: chocolate;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.4), 2px 2px 50px rgba(255,255,255, 0.5);
+  }
+
+  ul {
+    text-align: center;
+    margin-top: 50px;
+    li {
+      list-style-type: none;
+      margin-bottom: 30px;
+      font-size: 3em;
+      button,
+      a {
+        width: 400px;
+        font-family: 'Press Start 2p';
+      }
+      a:hover {
+        text-decoration: none;
+      }
+    }
+    .start-label {
+      font-family: 'Press Start 2p';
+      text-shadow: -1px -1px black, 1px 1px white;
+    }
+    .small {
+      font-size: 1em;
+    }
+  }
 }

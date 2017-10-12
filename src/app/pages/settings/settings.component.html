@@ -1,0 +1,16 @@
+<div class="start">
+  <h1>Settings</h1>
+
+  <ul>
+    <li class="start-label">
+      Game to play
+    </li>
+    <li>
+      <button class="start-btn" (click)="select('tetra')" [ngClass]="{ 'active': game == 'tetra' }">Tetra</button>
+      <button class="start-btn" (click)="select('bactemon')" [ngClass]="{ 'active': game == 'bactemon' }">Bactémon</button>
+    </li>
+    <li>
+      <a class="start-btn" [routerLink]="['/']">Back</a>
+    </li>
+  </ul>
+</div>

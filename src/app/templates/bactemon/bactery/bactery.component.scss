@@ -1,0 +1,54 @@
+.card {
+  width: 120px;
+  height: 175px;
+  background: white;
+  border-radius: 15px;
+  font-size: 8px;
+  padding: 5px;
+  img {
+    width: 100%;
+    margin: 5px 0;
+  }
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.card-black {
+  border: black solid 5px;
+}
+
+.card-silver {
+  border: silver solid 5px;
+}
+
+.title {
+  text-align: center;
+  font-weight: bold;
+}
+
+.subtext,
+.legend {
+  font-size: 7px;
+}
+
+.subtext {
+  font-style: italic;
+}
+
+.gram {
+  font-weight: bold;
+}
+
+.score {
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+  border: black solid 1px;
+  border-radius: 100%;
+  font-size: 12px;
+  line-height: 14px;
+  width: 16px;
+  text-align: center;
+}

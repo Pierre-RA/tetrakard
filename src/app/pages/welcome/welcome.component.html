@@ -1,9 +1,63 @@
-<h1>Tetra</h1>
-<ul>
-  <li>
-    <a [routerLink]="['/game']">New Game</a>
-  </li>
-  <li>
-    <a [routerLink]="['/']">Settings</a>
-  </li>
-</ul>
+<div *ngIf="!game" class="start">
+  <h1>Tetra Kard</h1>
+  <ul>
+    <li>
+      <button class="start-btn" (click)="continue()" *ngIf="saved">Continue</button>
+    </li>
+    <li>
+      <button class="start-btn" (click)="new()">New Game</button>
+    </li>
+    <li>
+      <a class="start-btn" [routerLink]="['/settings']">Settings</a>
+    </li>
+    <li>
+      <a class="start-btn" [routerLink]="['/credits']">Credits</a>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="game && game == 'tetra'" class="container">
+  <!-- TETRA BOARD -->
+  tetra
+</div>
+
+<div *ngIf="game && game == 'bactemon'" class="container">
+  <!-- BACTEMON BOARD -->
+
+  <div class="center-board">
+    <div class="row">
+      <bactemon-empty-bactery [type]="'antibiotics'" class="float"></bactemon-empty-bactery>
+      <bactemon-empty-bactery [type]="'bactery'" class="float"></bactemon-empty-bactery>
+      <bactemon-empty-bactery [type]="'bactery'" class="float"></bactemon-empty-bactery>
+      <bactemon-empty-bactery [type]="'bactery'" class="float"></bactemon-empty-bactery>
+      <bactemon-empty-bactery [type]="'bactery'" class="float"></bactemon-empty-bactery>
+      <bactemon-empty-bactery [type]="'bactery'" class="float"></bactemon-empty-bactery>
+      <div class="hand-span"></div>
+      <bactemon-empty-bactery [type]="'hand'" class="float"></bactemon-empty-bactery>
+    </div>
+
+    <div class="row">
+      <p class="score">
+        <span class="adversary">{{score.adversary}}</span> - <span class="you">{{score.you}}</span>
+      </p>
+    </div>
+
+    <div class="row">
+      <bactemon-empty-bactery [type]="'hand'" class="float"></bactemon-empty-bactery>
+      <div class="hand-span"></div>
+      <bactemon-empty-bactery [type]="'bactery'" class="float"></bactemon-empty-bactery>
+      <bactemon-empty-bactery [type]="'bactery'" class="float"></bactemon-empty-bactery>
+      <bactemon-empty-bactery [type]="'bactery'" class="float"></bactemon-empty-bactery>
+      <bactemon-empty-bactery [type]="'bactery'" class="float"></bactemon-empty-bactery>
+      <bactemon-empty-bactery dnd-droppable (onDropSuccess)="simpleDrop($event)" [type]="'bactery'" class="float"></bactemon-empty-bactery>
+      <bactemon-empty-bactery [type]="'antibiotics'" class="float"></bactemon-empty-bactery>
+    </div>
+  </div>
+
+  <div class="down">
+    <bactery *ngFor="let card of bactemonCards"
+      [card]="card" class="float"
+      dnd-draggable [dragEnabled]="true" [dragData]="card">
+    </bactery>
+  </div>
+</div>

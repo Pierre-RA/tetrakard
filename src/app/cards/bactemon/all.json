@@ -1,0 +1,10 @@
+{
+  "cards": [{
+    "title": "Yersinia Pestis",
+    "subtext": "A ravagé plus de la moitié de l'Europe au Moyen-Âge",
+    "image": "/assets/img/yersinia.jpg",
+    "gram": "Gram -",
+    "legend": "Responsable de la peste",
+    "score": 3
+  }]
+}
