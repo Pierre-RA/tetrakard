@@ -1,6 +1,6 @@
 .card {
-  width: 120px;
-  height: 175px;
+  width: 130px;
+  height: 180px;
   background: white;
   border-radius: 15px;
   font-size: 8px;
@@ -8,6 +8,7 @@
   img {
     width: 100%;
     margin: 5px 0;
+    pointer-events: none;
   }
   p {
     margin: 0;
@@ -35,6 +36,7 @@
 
 .subtext {
   font-style: italic;
+  text-align: center;
 }
 
 .gram {

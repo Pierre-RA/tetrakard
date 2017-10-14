@@ -6,5 +6,13 @@
     "gram": "Gram -",
     "legend": "Responsable de la peste",
     "score": 3
+  }, {
+    "title": "Corinebacterium",
+    "subtext": "Renflée à une extrémité",
+    "image": "/assets/img/corynebacterium.jpg",
+    "gram": "Gram +",
+    "legend": "Bactérie pathogène responsable de la diphtérie, également appelée le bacile de Klebs-Loeffer",
+    "score": 3,
+    "resistances": ["blue", "red", "yellow"]
   }]
 }

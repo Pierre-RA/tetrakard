@@ -1,3 +1,36 @@
-<p>
-  board works!
-</p>
+<div class="container">
+  <div class="center-board">
+    <div class="row">
+      <bactemon-empty-bactery [type]="'antibiotics'" class="float"></bactemon-empty-bactery>
+      <bactemon-empty-bactery [type]="'bactery'" class="float"></bactemon-empty-bactery>
+      <bactemon-empty-bactery [type]="'bactery'" class="float"></bactemon-empty-bactery>
+      <bactemon-empty-bactery [type]="'bactery'" class="float"></bactemon-empty-bactery>
+      <bactemon-empty-bactery [type]="'bactery'" class="float"></bactemon-empty-bactery>
+      <bactemon-empty-bactery [type]="'bactery'" class="float"></bactemon-empty-bactery>
+      <bactemon-empty-bactery [type]="'deck'" class="float"></bactemon-empty-bactery>
+    </div>
+
+    <div class="row">
+      <p class="score">
+        <span class="adversary">{{score.adversary}}</span> - <span class="you">{{score.you}}</span>
+      </p>
+    </div>
+
+    <div class="row">
+      <bactemon-empty-bactery [type]="'deck'" class="float"></bactemon-empty-bactery>
+      <bactemon-empty-bactery [type]="'bactery'" class="float"></bactemon-empty-bactery>
+      <bactemon-empty-bactery [type]="'bactery'" class="float"></bactemon-empty-bactery>
+      <bactemon-empty-bactery [type]="'bactery'" class="float"></bactemon-empty-bactery>
+      <bactemon-empty-bactery [type]="'bactery'" class="float"></bactemon-empty-bactery>
+      <bactemon-empty-bactery dnd-droppable (onDropSuccess)="simpleDrop(4, $event)" [type]="'bactery'" class="float"></bactemon-empty-bactery>
+      <bactemon-empty-bactery [type]="'antibiotics'" class="float"></bactemon-empty-bactery>
+    </div>
+  </div>
+
+  <div class="down">
+    <bactery *ngFor="let card of bactemonCards"
+      [card]="card" class="float"
+      dnd-draggable [dragEnabled]="true" [dragData]="card">
+    </bactery>
+  </div>
+</div>

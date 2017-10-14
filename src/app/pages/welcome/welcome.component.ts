@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { BactemonService } from '../../services/bactemon.service';
-import { BactemonCard } from '../../logic/bactemon';
+
 
 @Component({
   selector: 'app-welcome',
@@ -12,24 +11,10 @@ export class WelcomeComponent implements OnInit {
 
   game: string;
   state: string;
-  score: {
-    adversary: number,
-    you: number
-  }
-  bactemonCards: Array<BactemonCard>;
-  foo: BactemonCard;
 
-  constructor(
-    private bactemonService: BactemonService
-  ) {
+  constructor() {
     this.game = null;
     this.state = localStorage.getItem('state');
-    this.score = {
-      adversary: 20,
-      you: 20
-    }
-    this.bactemonCards = [];
-    this.bactemonCards.push(this.bactemonService.getRandom());
   }
 
   ngOnInit() {
@@ -48,9 +33,8 @@ export class WelcomeComponent implements OnInit {
     localStorage.setItem('state', 'current');
   }
 
-  simpleDrop(event): void {
-    console.log(event);
-    this.foo = event;
+  reset(): void {
+    this.game = null;
   }
 
 }
