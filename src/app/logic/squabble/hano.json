@@ -1,0 +1,68 @@
+{
+  "words": [
+    "maraskanaplooth",
+    "auroskanaplusthosphoclos",
+    "auroelloskant",
+    "skonoellonth",
+    "burgonoth",
+    "skauroelloborth",
+    "boolthoroskana",
+    "ueroelloth",
+    "unoellotorothauroskanth",
+    "arkantoth",
+    "hidonoelloporth",
+    "hidonplasth",
+    "oellosphoclos",
+    "planaphustort",
+    "unusplanatorth",
+    "oellohidonawath",
+    "poothoellotan",
+    "hidonoellowatinaurotonth"
+  ],
+  "syllabes": [
+    "mara", "skana", "plooth",
+    "auro", "plust", "thos", "phoclos",
+    "ello", "skant",
+    "ellonth",
+    "burg", "onoth",
+    "skauro", "borth",
+    "bool", "thoro",
+    "uero", "elloth",
+    "uno", "toro", "thauro", "skanth",
+    "arkan", "toth",
+    "hidono", "porth",
+    "plasth",
+    "oellos",
+    "plana", "phus", "torth",
+    "hidon", "awath",
+    "kano", "elloth",
+    "eskana", "plut",
+    "pooth", "tan",
+    "watin", "tonth"
+  ],
+  "languages": [
+    "cholian", "nu-cholian",
+    "vaal", "du-vaal",
+    "nardanskh", "wutopian",
+    "janubian", "common"
+  ],
+  "examples": [{
+    "cholian": "skana",
+    "nu-cholian": "skane",
+    "vaal": "sakana",
+    "du-vaal": "sakan",
+    "nardansh": "skåni",
+    "wutopian": "skani",
+    "janubian": "askana",
+    "common": "squane"
+  }, {
+    "cholian": "plana",
+    "nu-cholian": "dapla",
+    "vaal": "duin",
+    "du-vaal": "dol'duin",
+    "nardanskh": "dalþ",
+    "wutopian": "dal",
+    "janubian": "dalpla",
+    "common": "dale"
+  }]
+}

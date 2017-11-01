@@ -16,12 +16,37 @@
   }
 }
 
+.card-misc {
+  img {
+    width: 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
 .card-black {
   border: black solid 5px;
 }
 
 .card-silver {
   border: silver solid 5px;
+}
+
+.card-deck {
+  background-image: url('/assets/img/bacteria_pattern.jpg');
+  margin: 0;
+  border: rgba(0,40,10,0.8) solid 5px;
+  p {
+    position: absolute;
+    bottom: 5px;
+    text-align: center;
+    width: 100%;
+    color: rgb(169,225,115);
+    font-size: 1.4em;
+    font-family: 'Press Start 2p';
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+  }
 }
 
 .title {

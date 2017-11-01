@@ -15,6 +15,7 @@ export class BoardComponent implements OnInit {
     you: number
   }
   bactemonCards: Array<BactemonCard>;
+  boardCard: Array<BactemonCard>;
   foo: BactemonCard;
 
   constructor(
@@ -25,6 +26,7 @@ export class BoardComponent implements OnInit {
       you: 20
     }
     this.bactemonCards = [];
+    this.boardCard = [null, null, null, null, null, null, null, null, null, null, null, null];
     for (let i = 0; i < 8; i++) {
       this.bactemonCards.push(this.bactemonService.getRandom());
     }
@@ -34,8 +36,9 @@ export class BoardComponent implements OnInit {
   }
 
   simpleDrop(i: number, event): void {
-    console.log(event);
+    console.log(i, event);
     this.foo = event;
+    this.boardCard[i] = event;
   }
 
 }

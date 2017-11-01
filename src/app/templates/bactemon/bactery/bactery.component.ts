@@ -10,20 +10,28 @@ import { BactemonCard } from '../../../logic/bactemon';
 export class BacteryComponent implements OnInit {
 
   @Input() card: BactemonCard;
-  type: string;
+  @Input() type: string;
+  image: string;
 
   constructor() {
-    if (this.card && this.card.gram == 'Gram -') {
-      console.log('-');
-      this.type = 'black';
-    }
-    if (this.card && this.card.gram == 'Gram +') {
-      console.log('+');
-      this.type = 'silver';
-    }
   }
 
   ngOnInit() {
+    if (this.card && this.card.gram == 'Gram -') {
+      this.type = 'black';
+    }
+    if (this.card && this.card.gram == 'Gram +') {
+      this.type = 'silver';
+    }
+    if (!this.card) {
+      this.image = '';
+      if (this.type == 'bactery') {
+        this.image = '/assets/img/bactery.png';
+      }
+      if (this.type == 'antibiotics') {
+        this.image = '/assets/img/syringe.png';
+      }
+    }
   }
 
 }

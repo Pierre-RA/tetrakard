@@ -1,8 +1,22 @@
-<div class="card card-{{card.type}}">
+<div class="card card-{{card.type}}" *ngIf="card">
   <p class="title">{{card.title}}</p>
   <p class="subtext">{{card.subtext}}</p>
   <img [src]="card.image" />
   <p class="gram">{{card.gram}}</p>
   <p class="legend">{{card.legend}}</p>
   <p class="score">{{card.score}}</p>
+</div>
+
+<div *ngIf="card && card == 'antibiotics'">
+  ANTIBIOTICS
+</div>
+
+<div class="card card-black card-misc" *ngIf="!card && type != 'deck'">
+  <img [src]="image" />
+</div>
+
+<div class="card card-black card-deck" *ngIf="!card && type == 'deck'">
+  <p>
+    Bactémon
+  </p>
 </div>

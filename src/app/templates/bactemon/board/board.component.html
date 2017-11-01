@@ -1,13 +1,13 @@
 <div class="container">
   <div class="center-board">
     <div class="row">
-      <bactemon-empty-bactery [type]="'antibiotics'" class="float"></bactemon-empty-bactery>
-      <bactemon-empty-bactery [type]="'bactery'" class="float"></bactemon-empty-bactery>
-      <bactemon-empty-bactery [type]="'bactery'" class="float"></bactemon-empty-bactery>
-      <bactemon-empty-bactery [type]="'bactery'" class="float"></bactemon-empty-bactery>
-      <bactemon-empty-bactery [type]="'bactery'" class="float"></bactemon-empty-bactery>
-      <bactemon-empty-bactery [type]="'bactery'" class="float"></bactemon-empty-bactery>
-      <bactemon-empty-bactery [type]="'deck'" class="float"></bactemon-empty-bactery>
+      <bactery [type]="'antibiotics'" class="float"></bactery>
+      <bactery [type]="'bactery'" class="float"></bactery>
+      <bactery [type]="'bactery'" class="float"></bactery>
+      <bactery [type]="'bactery'" class="float"></bactery>
+      <bactery [type]="'bactery'" class="float"></bactery>
+      <bactery [type]="'bactery'" class="float"></bactery>
+      <bactery [type]="'deck'" class="float"></bactery>
     </div>
 
     <div class="row">
@@ -17,13 +17,13 @@
     </div>
 
     <div class="row">
-      <bactemon-empty-bactery [type]="'deck'" class="float"></bactemon-empty-bactery>
-      <bactemon-empty-bactery [type]="'bactery'" class="float"></bactemon-empty-bactery>
-      <bactemon-empty-bactery [type]="'bactery'" class="float"></bactemon-empty-bactery>
-      <bactemon-empty-bactery [type]="'bactery'" class="float"></bactemon-empty-bactery>
-      <bactemon-empty-bactery [type]="'bactery'" class="float"></bactemon-empty-bactery>
-      <bactemon-empty-bactery dnd-droppable (onDropSuccess)="simpleDrop(4, $event)" [type]="'bactery'" class="float"></bactemon-empty-bactery>
-      <bactemon-empty-bactery [type]="'antibiotics'" class="float"></bactemon-empty-bactery>
+      <bactery [type]="'deck'" class="float"></bactery>
+      <bactery [type]="'bactery'" class="float"></bactery>
+      <bactery [type]="'bactery'" class="float"></bactery>
+      <bactery [type]="'bactery'" class="float"></bactery>
+      <bactery [type]="'bactery'" class="float"></bactery>
+      <bactery dnd-droppable (onDropSuccess)="simpleDrop(10, $event)" [card]="bactemonCards[10]" [type]="'bactery'" class="float"></bactery>
+      <bactery [type]="'antibiotics'" class="float"></bactery>
     </div>
   </div>
 
