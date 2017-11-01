@@ -1,12 +1,12 @@
 <div class="container">
   <div class="center-board">
     <div class="row">
-      <bactery [type]="'antibiotics'" class="float"></bactery>
-      <bactery [type]="'bactery'" class="float"></bactery>
-      <bactery [type]="'bactery'" class="float"></bactery>
-      <bactery [type]="'bactery'" class="float"></bactery>
-      <bactery [type]="'bactery'" class="float"></bactery>
-      <bactery [type]="'bactery'" class="float"></bactery>
+      <bactery [type]="'antibiotics'" [card]="boardCard[5]" class="float"></bactery>
+      <bactery [type]="'bactery'" [card]="boardCard[4]" class="float"></bactery>
+      <bactery [type]="'bactery'" [card]="boardCard[3]" class="float"></bactery>
+      <bactery [type]="'bactery'" [card]="boardCard[2]" class="float"></bactery>
+      <bactery [type]="'bactery'" [card]="boardCard[1]" class="float"></bactery>
+      <bactery [type]="'bactery'" [card]="boardCard[0]" class="float"></bactery>
       <bactery [type]="'deck'" class="float"></bactery>
     </div>
 
@@ -17,20 +17,26 @@
     </div>
 
     <div class="row">
-      <bactery [type]="'deck'" class="float"></bactery>
-      <bactery [type]="'bactery'" class="float"></bactery>
-      <bactery [type]="'bactery'" class="float"></bactery>
-      <bactery [type]="'bactery'" class="float"></bactery>
-      <bactery [type]="'bactery'" class="float"></bactery>
-      <bactery dnd-droppable (onDropSuccess)="simpleDrop(10, $event)" [card]="bactemonCards[10]" [type]="'bactery'" class="float"></bactery>
+      <bactery [type]="'deck'" class="float hand" (click)="getRandom()"></bactery>
+      <bactery [type]="'bactery'" dnd-droppable (onDropSuccess)="simpleDrop(6, $event)" [card]="boardCard[6]" class="float"></bactery>
+      <bactery [type]="'bactery'" dnd-droppable (onDropSuccess)="simpleDrop(7, $event)" [card]="boardCard[7]" class="float"></bactery>
+      <bactery [type]="'bactery'" dnd-droppable (onDropSuccess)="simpleDrop(8, $event)" [card]="boardCard[8]" class="float"></bactery>
+      <bactery [type]="'bactery'" dnd-droppable (onDropSuccess)="simpleDrop(9, $event)" [card]="boardCard[9]" class="float"></bactery>
+      <bactery [type]="'bactery'" dnd-droppable (onDropSuccess)="simpleDrop(10, $event)" [card]="boardCard[10]" class="float"></bactery>
       <bactery [type]="'antibiotics'" class="float"></bactery>
     </div>
   </div>
+</div>
 
-  <div class="down">
-    <bactery *ngFor="let card of bactemonCards"
-      [card]="card" class="float"
-      dnd-draggable [dragEnabled]="true" [dragData]="card">
-    </bactery>
-  </div>
+<div class="down">
+  <bactery *ngFor="let card of bactemonCards"
+    [card]="card" class="float"
+    dnd-draggable [dragEnabled]="true" [dragData]="card">
+  </bactery>
+</div>
+
+<div class="up">
+  <bactery *ngFor="let card of bactemonCards"
+    [type]="'deck'" class="float">
+  </bactery>
 </div>

@@ -26,8 +26,8 @@ export class BoardComponent implements OnInit {
       you: 20
     }
     this.bactemonCards = [];
-    this.boardCard = [null, null, null, null, null, null, null, null, null, null, null, null];
-    for (let i = 0; i < 8; i++) {
+    this.boardCard = [null, this.bactemonService.getRandom(), null, null, null, null, null, null, null, null, null, null];
+    for (let i = 0; i < 6; i++) {
       this.bactemonCards.push(this.bactemonService.getRandom());
     }
   }
@@ -36,9 +36,13 @@ export class BoardComponent implements OnInit {
   }
 
   simpleDrop(i: number, event): void {
-    console.log(i, event);
     this.foo = event;
-    this.boardCard[i] = event;
+    this.boardCard[i] = event.dragData;
+  }
+
+  getRandom() {
+    this.foo = this.bactemonService.getRandom();
+    console.log('get random card', this.foo);
   }
 
 }

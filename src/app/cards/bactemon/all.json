@@ -14,5 +14,21 @@
     "legend": "Bactérie pathogène responsable de la diphtérie, également appelée le bacile de Klebs-Loeffer",
     "score": 3,
     "resistances": ["blue", "red", "yellow"]
+  }, {
+    "title": "Salmonella",
+    "subtext": "On me trouve dans le sandwich œuf mayo",
+    "image": "/assets/img/salmonella.jpg",
+    "gram": "Gram -",
+    "legend": "Responsable de la salmonelle, une des principales causes de toxi-infection alimentaire collective.",
+    "score": 2,
+    "resistances": ["yellow", "red"]
+  }, {
+    "title": "Listeria",
+    "subtext": "Surveille tes habitudes alimentaires",
+    "image": "/assets/img/listeria.jpg",
+    "gram": "Gram -",
+    "legend": "Genre bactérien composé d'une dizaine d'espèces. Responsable de la listériose, qui touche les hommes et les animaux",
+    "score": 1,
+    "resistances": ["yellow"]
   }]
 }
